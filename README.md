@@ -1,5 +1,6 @@
 # startup
 Startup application for BYU CS 260 - Connect 4
+A classic game recreated by a classy individual
 
 ## Specification Deliverable
 ### Elevator Pitch
@@ -8,6 +9,8 @@ Have you ever been unable to decide the smartest in the room? You may need to ma
 
 ### Design
 
+![Mock](Startup_First_3_Images.JPG)
+![Mock](Leaderboard.JPG)
 
 Here is a sequence diagram that shows how users would interact with the backend to play and watch:
 
