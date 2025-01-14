@@ -9,6 +9,23 @@ Have you ever been unable to decide the smartest in the room? You may need to ma
 ### Design
 
 
+Here is a sequence diagram that shows how users would interact with the backend to play and watch:
+
+```mermaid
+sequenceDiagram
+    actor Player1(Red)
+    actor Player2(Yellow)
+    actor Player3(Spectator)
+    Player1(Red)->>Server: Red Move
+    Server -->>Player2(Yellow): Red Move
+    Server -->>Player3(Spectator): Red Move
+    Server -->>Player2(Yellow): Your Move
+    Player2(Yellow)->>Server: Yellow Move
+    Server -->>Player1(Red): Yellow Move
+    Server -->>Player3(Spectator): Yellow Move
+    Server -->>Player1(Red): Your Move
+```
+
 ### Key Features
 - Secure login over HTTPS
 - Display start game or spectate game options
