@@ -9,7 +9,8 @@ Have you ever been unable to decide the smartest in the room? You may need to ma
 
 ### Design
 
-![Mock](Startup First 3 Images.JPG)
+![Mock](First3Images.JPG)
+
 ![Mock](Leaderboard.JPG)
 
 Here is a sequence diagram that shows how users would interact with the backend to play and watch:
