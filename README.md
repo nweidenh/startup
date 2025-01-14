@@ -9,6 +9,7 @@ Have you ever been unable to decide the smartest in the room? You may need to ma
 
 ### Design
 
+These are some hand-drawn designs for the Connect 4 website:
 ![Mock](First3Images.JPG)
 
 ![Mock](Leaderboard.JPG)
