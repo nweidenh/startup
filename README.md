@@ -9,7 +9,9 @@ Have you ever been unable to decide the smartest in the room? You may need to ma
 
 ### Design
 
-![Mock](Startup First 3 Images.JPG)
+These are some hand-drawn designs for the Connect 4 website:
+![Mock](First3Images.JPG)
+
 ![Mock](Leaderboard.JPG)
 
 Here is a sequence diagram that shows how users would interact with the backend to play and watch:
