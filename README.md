@@ -47,5 +47,6 @@ I am going to use the required technologies in the following ways:
   - login
   - retrieving recently done moves
   - keeps track of votes overall
+  - displyaing a random inspirational quote using an external service
 - **DB/Login** - Store users as well as active games in a database. Register and login users, with credentials stored in the database. Cannot play until authenticated. Storing overall records of users
 - **WebSocket** - Whenever one move is taken, it gets broadcast to all other boards
