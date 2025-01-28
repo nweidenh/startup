@@ -52,3 +52,10 @@ I am going to use the required technologies in the following ways:
   - displyaing a random inspirational quote using an external service
 - **DB/Login** - Store users as well as active games in a database. Register and login users, with credentials stored in the database. Cannot play until authenticated. Storing overall records of users
 - **WebSocket** - Whenever one move is taken, it gets broadcast to all other boards
+
+## HTML Deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- [x] **HTML pages** - Four HTML pages that represent the ability to login/create, play a game, a database page and an about screen.
+- [x] **Navigation elements** - 
