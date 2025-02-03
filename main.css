@@ -4,13 +4,23 @@
     box-sizing: border-box;
   }
 
-body{
+html, body{
     background: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    background: rgb(74, 71, 71);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex: 1 calc(100vh - 110px);
+    color: white;
 }
 
-html {
-    margin: 2rem;
-  }
 
 menu .nav-item {
     padding: 0 0.3em;
@@ -24,3 +34,34 @@ menu .nav-item {
 .navbar-brand{
     border-bottom: solid gray thick;
 }
+
+.custom-padding{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+
+.white-bold-text{
+    color:  white;
+    font-weight: bold;
+}
+
+.githublink{
+    padding-right: 10px;
+}
+
+.name{
+    padding-left: 10px;
+}
+
+@media (max-height: 600px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+    }
+  }

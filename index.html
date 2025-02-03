@@ -29,32 +29,27 @@
                 </div>
             </nav>
         </header> 
-        <main>
-            <h1>This is Connect 4</h1>
-            <h4>The ultimate test of strategy and wits</h4>
+        <main class="container-fluid">
+            <h1 class="white-bold-text">This is Connect 4</h1>
+            <h4 class="white-bold-text">The ultimate test of strategy and wits</h4>
             <img src="Connect 4 Box.jpg" alt="Connect 4 Box" width="300" height="auto">
             <form action="play_game.html">
-            <h3>To play a game, please login below:</h3>
-                <ul>
-                    <li>
-                        <label for="text">Username:</label>
-                        <input type="text" id="text" name="varText" placeholder="Username"/>
-                    </li>
-                    <li>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="varPassword" placeholder="Password"/>
-                    </li>
-                </ul>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">Login</button>
+            <div><h3 class="white-bold-text">To play a game, please login below:</h3></div>
+                <div class="input-group custom-padding">
+                    <span class="input-group-text">Username:</span>
+                    <input class="form-control" type="text" id="text" name="varText" placeholder="Username"/>
+                </div>
+                <div class="input-group custom-padding">
+                    <span class="input-group-text">Password: </span>
+                    <input class="form-control" type="password" id="password" name="varPassword" placeholder="Password"/>
+                </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
             </form>
-
         </main>
-        <br>
-            <hr>
         <footer>
             <div class="navbar bg-light">
-            <span> <h2>Creator: Nathan Weidenhamer </h2> </span>
-            <a href="https://github.com/nweidenh/startup"><h3>Link To My Github</h3></a>
+            <span> <h2 class="name">Creator: Nathan Weidenhamer </h2> </span>
+            <a href="https://github.com/nweidenh/startup"><h3 class="githublink">Link To My Github</h3></a>
             </nav>
         </footer>
     </body>
