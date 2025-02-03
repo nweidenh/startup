@@ -1,0 +1,11 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+
+body{
+    background: black;
+}
+.navbar-brand{
+    border-bottom: solid gray thick;
+}
