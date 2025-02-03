@@ -6,6 +6,11 @@
 body{
     background: black;
 }
+
+html {
+    margin: 2rem;
+  }
+
 .navbar-brand{
     border-bottom: solid gray thick;
 }
