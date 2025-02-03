@@ -14,31 +14,24 @@
       />
     </head>
     <body>
-        <header class="sticky-top">
+        <header class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
                     <a class = "navbar-brand" href="#">
                         <h1>Connect 4</h1>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a href="index.html" class="nav_link"><b>Home</b></a>
-                            </li>
-                            <li class="nav-item"><a href="play_game.html" class="nav_link"><b>Play Game</b></a></li>
-                            <li class="nav-item"><a href="database.html" class="nav_link"><b>Wins Database</b></a></li>
-                            <li class="nav-item"><a href="info.html" class="nav_link"><b>Info</b></a></li>
-                        </ul>
-                    </div>
+                    <menu class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="index.html"><b>Home</b></a></li>
+                            <li class="nav-item"><a href="play_game.html" class="nav-link"><b>Play Game</b></a></li>
+                            <li class="nav-item"><a href="database.html" class="nav-link"><b>Wins Database</b></a></li>
+                            <li class="nav-item"><a href="info.html" class="nav-link"><b>Info</b></a></li>
+                    </menu>
                 </div>
             </nav>
         </header> 
         <main>
             <h1>This is Connect 4</h1>
-            <h3>The ultimate test of strategy and wits</h3>
+            <h4>The ultimate test of strategy and wits</h4>
             <img src="Connect 4 Box.jpg" alt="Connect 4 Box" width="300" height="auto">
             <form action="play_game.html">
             <h3>To play a game, please login below:</h3>
@@ -59,8 +52,10 @@
         <br>
             <hr>
         <footer>
-            <span> <h2>Website Maker: Nathan Weidenhamer </h2> </span>
+            <div class="navbar bg-light">
+            <span> <h2>Creator: Nathan Weidenhamer </h2> </span>
             <a href="https://github.com/nweidenh/startup"><h3>Link To My Github</h3></a>
+            </nav>
         </footer>
     </body>
 </html>

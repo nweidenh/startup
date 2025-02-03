@@ -3,21 +3,32 @@
     <head>
         <meta charset="UTF-8" />
         <title>Connect 4</title>
+
+        <link rel="stylesheet" href="main.css" />
+
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
+      />
     </head>
     <body>
-        <header>
-            <h1>Connect 4</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html"><b>Home</b></a></li>
-                <li><a href="play_game.html"><b>Play Game</b></a></li>
-                <li><a href="database.html"><b>Wins Database</b></a></li>
-                <li><a href="info.html"><b>Info</b></a></li>
-            </ul>
-        </nav>
-        <br>
-        <hr>
+        <header class="container-fluid">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class = "navbar-brand" href="#">
+                        <h1>Connect 4</h1>
+                    </a>
+                    <menu class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><b>Home</b></a></li>
+                            <li class="nav-item"><a href="play_game.html" class="nav-link"><b>Play Game</b></a></li>
+                            <li class="nav-item"><a href="database.html" class="nav-link"><b>Wins Database</b></a></li>
+                            <li class="nav-item"><a href="info.html" class="nav-link active"><b>Info</b></a></li>
+                    </menu>
+                </div>
+            </nav>
+        </header> 
         </header> 
         <main>
             <section>
@@ -38,8 +49,10 @@
         </main>
             <hr>
             <footer>
-                <span> <h2>Website Maker: Nathan Weidenhamer </h2> </span>
+                <div class="navbar bg-light">
+                <span> <h2>Creator: Nathan Weidenhamer </h2> </span>
                 <a href="https://github.com/nweidenh/startup"><h3>Link To My Github</h3></a>
+                </nav>
             </footer>
     </body>
 </html>

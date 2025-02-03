@@ -1,5 +1,6 @@
 * {
     font-family: sans-serif;
+    font-size: 100%;
     box-sizing: border-box;
   }
 
@@ -10,6 +11,15 @@ body{
 html {
     margin: 2rem;
   }
+
+menu .nav-item {
+    padding: 0 0.3em;
+    font-size: 150%;
+}
+
+.nav-link{
+    color: black;
+}
 
 .navbar-brand{
     border-bottom: solid gray thick;
