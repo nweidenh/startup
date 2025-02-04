@@ -19,3 +19,9 @@ Table, TR, TH, TD for creation of a table.
 Form/input to create an input for login/password.
 
 Things to look into: How to make the pieces work on the Connect 4 gameboard.
+
+Creating a new css file, you must include it at the top to adopt into the file
+
+use the class = "" feature and put the name in the css file with everything you want to add to that specific feature
+
+Use the inspect feature by right clicking on the google chrome thing you want to dive into the css on.
