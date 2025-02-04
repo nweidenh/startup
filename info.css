@@ -1,0 +1,18 @@
+.quote-box {
+    margin-top: 1em;
+    padding: 0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 5px;
+    background-color:rgb(255, 252, 240);
+    color: black;
+  }
+
+.head-box{
+    border: 2px solid black;
+    padding: 0.5em;
+}
+
+.large{
+    font-size: 150%;
+}
