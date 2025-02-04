@@ -76,3 +76,19 @@ For this deliverable I built out the structure of my application using HTML.
 - [x] **WebSocket Data Placeholder** - On the play game page, there will be notifications sent about who is playing the game and whose turn it is, incluidng if there are any spectators. It will also announce a winner when the game ends.
 
 - [x] **Styling** - I also added a bit of impromptu styling with HTML to make things flow and look a little more presentable. This includes dividers between header and footer, as well as some buttons and header texts.
+
+## CSS Deliverable
+
+For this deliverable I properly styled the applications into its final appearance.
+
+- [x] **Header, Footer, and Main Content Body** - Created styling for each header and footer, as well as the main content body of each page.
+
+- [x] **Navigation Elements** - Got rid of the underlines for the main navigation pieces in the header, and then changed the color to match the theme. I did not change the github link because I felt that this would emphasize the fact that it was a link.
+
+- [x] **Responsive to Window Resizing** - The app looks good on all window sizes and devices. If it gets really small then I feel it would be impractical, but that is likely the same for all tiny screens.
+
+- [x] **Application Elements** - Emphasized contrast and whitespace. The layout has been changed to be centered on the page and emphasize the main parts of each page.
+
+- [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
+
+- [x] **Applicaiton Images** - Styled the image on the home screen with padding added, as well as an image-like table on the Play Game page.
