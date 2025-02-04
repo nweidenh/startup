@@ -87,7 +87,7 @@ For this deliverable I properly styled the applications into its final appearanc
 
 - [x] **Responsive to Window Resizing** - The app looks good on all window sizes and devices. If it gets really small then I feel it would be impractical, but that is likely the same for all tiny screens.
 
-- [x] **Application Elements** - Emphasized contrast and whitespace. The layout has been changed to be centered on the page and emphasize the main parts of each page.
+- [x] **Application Elements** - Emphasized contrast and whitespace. The layout has been changed to be centered on the page and emphasize the main parts of each page. Included boxes for some of the text to make things more readable and broken up. Also changed some of the buttons to be better styled.
 
 - [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
 
