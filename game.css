@@ -3,6 +3,7 @@ li{
 }
 
 .quote-box {
+    height: calc(100px + 1em);
     margin-top: 1em;
     padding: 0.5em;
     margin-left: 1em;
@@ -41,7 +42,6 @@ td, th{
     padding: 0.25em;
     margin-bottom: 0.5em;
     color: white;
-    animation: slideInFromLeft 1s ease-out forwards;
   }
 
 td.yellow{

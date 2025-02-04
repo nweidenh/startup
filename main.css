@@ -10,6 +10,10 @@ html, body{
     display: flex;
     flex-direction: column;
 }
+.header{
+    display: flex;
+}
+
 main{
     background: rgb(74, 71, 71);
     display: flex;
@@ -54,14 +58,28 @@ menu .nav-item {
     padding-left: 10px;
 }
 
-@media (max-height: 600px) {
+@media (orientation: portrait) {
     header {
-      display: none;
+        flex-direction: column;
+        display: none;
     }
     footer {
-      display: none;
+        display: none;
     }
     main {
-      flex: 1 100vh;
+        flex: 1 100vh;
+    }
+  }
+
+  @media (max-height: 600px) {
+    header {
+        flex-direction: column;
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+    main {
+        flex: 1 100vh;
     }
   }
