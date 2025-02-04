@@ -23,3 +23,31 @@ li{
 .red{
     color: red;
 }
+
+#table-data {
+    background-color: #eee;
+    width: 300px;
+  }
+  
+td, th{
+    color: black;
+    text-align: center;
+    border: rgb(57, 10, 10) solid thick;
+    padding: 3em;
+  }
+
+.tabform {
+    background: gray;
+    padding: 0.25em;
+    margin-bottom: 0.5em;
+    color: white;
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+
+td.yellow{
+    background-color: yellow;
+}
+
+td.red{
+    background-color: red;
+}
