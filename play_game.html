@@ -5,6 +5,7 @@
         <title>Connect 4</title>
 
         <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="game.css" />
 
         <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -32,25 +33,25 @@
         </header> 
         <main>
             <section>
-                <div><h2>Username: Special User</h2></div>
-                <div><b> Your Color: Yellow </b></div>
+                <div class="quote-box">
+                    <div><h2><b>Username: Special User</b></h2></div>
+                    <div class="fontsizer"> Your Color: Yellow</div>
+                </div>
                 <br>
-                <ul>
-                    <li><div>Special User has joined as red.(Websocket placeholder)</div></li>
-                    <li><div>Less Special User has joined as yellow. (Websocket placeholder)</div></li>
-                    <li><div>Yellow just took their turn. (Websocket placeholder)</div></li>
-                    <li><div>It is currently Red's Turn! (Websocket placeholder)</div></li>
-                </ul>
+                    <li>Special User has joined as red. (Websocket placeholder)</li>
+                    <li>Less Special User has joined as yellow. (Websocket placeholder)</li>
+                    <li>Yellow just took their turn. (Websocket placeholder)</li>
+                    <li>It is currently Red's Turn! (Websocket placeholder)</li>
                 <br>
-                <button type="End Game">Forfeit Game</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>
                 <br>
                 <br>
                 <img src="board.jpg" alt="Game Board" width = "500" height="auto">
                 <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">A</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">B</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">C</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">D</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">E</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">F</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">G</button>
+                <button type="submit">A</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">B</button>&nbsp;&nbsp;&nbsp;<button type="submit">C</button>&nbsp;&nbsp;&nbsp;<button type="submit">D</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">E</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">F</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">G</button>&nbsp;&nbsp;&nbsp;
                 <br>
                 <br>
-                <div>Wait for Red to take their turn! (If it was their turn, it will say, "click the column button where you want to drop your piece")</div>
+                <div class="alert alert-primary">Wait for Red to take their turn! (If it was their turn, it will say, "click the column button where you want to drop your piece")</div>
             </section>
         </main>
         <br>
