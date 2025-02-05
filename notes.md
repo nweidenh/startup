@@ -25,3 +25,14 @@ Creating a new css file, you must include it at the top to adopt into the file
 use the class = "" feature and put the name in the css file with everything you want to add to that specific feature
 
 Use the inspect feature by right clicking on the google chrome thing you want to dive into the css on.
+
+This may seem like a lot of work but after you do it a few times it will begin to feel natural. Just remember the main steps.
+
+For Using Node.js
+Create your project directory
+Initialize it for use with NPM by running npm init -y
+Make sure .gitignore file contains node_modules
+Install any desired packages with npm install <package name here>
+Add require('<package name here>') to your application's JavaScript
+Use the code the package provides in your JavaScript
+Run your code with node index.js
