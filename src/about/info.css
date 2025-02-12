@@ -1,12 +1,22 @@
-.quote-box {
-    margin-top: 1em;
-    padding: 0.5em;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-radius: 5px;
-    background-color:rgb(255, 252, 240);
+.text-box {
+    align-content: center;
+    width: 80%; /* Adjust width as needed */
+    max-width: 1000px; /* Prevent excessive stretching */
+    padding: 20px;
+    border: 2px solid black;
+    background-color: rgb(255, 252, 240);
     color: black;
+    overflow-wrap: break-word; /* Ensures text wraps properly */
+    word-wrap: break-word; /* Alternative for older browsers */
+    white-space: normal; /* Ensures text wraps */
+    display: block; /* Ensures box grows with text */
   }
+.content-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;  /* Center boxes horizontally */
+    justify-content: center; /* Center content within the viewport */
+}
 
 .head-box{
     border: 2px solid black;
