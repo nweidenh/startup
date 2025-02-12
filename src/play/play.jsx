@@ -19,6 +19,7 @@ export function Play() {
                 <br />
                 <br />
                 <table id="table-data" className="table-bordered">
+                  <thead>
                     <tr>
                         <th>A</th>
                         <th>B</th>
@@ -82,6 +83,7 @@ export function Play() {
                         <td className="red"></td>
                         <td className="yellow"></td>
                       </tr>
+                    </thead>
                 </table>
                 <br />
                 <div className="alert alert-primary fontsizer">Click the column button where you want to drop your piece!</div>

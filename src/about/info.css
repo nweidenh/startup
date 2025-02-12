@@ -11,12 +11,15 @@
     white-space: normal; /* Ensures text wraps */
     display: block; /* Ensures box grows with text */
   }
+
 .content-container {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center;  /* Center boxes horizontally */
     justify-content: center; /* Center content within the viewport */
-}
+    min-height: 100vh; /* Optional: Adjusts vertical centering */
+    width: 100%;
+  }
 
 .head-box{
     border: 2px solid black;
