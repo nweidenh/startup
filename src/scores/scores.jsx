@@ -4,8 +4,9 @@ import './database.css';
 export function Scores() {
   return (
     <main className="container-fluid text-center">
-                <p><h2>Wins Database</h2></p>
-                <table className="table table-striped-columns">
+        <p><h2>Wins Database</h2></p>
+                <table className="table table-warning table-striped-columns">
+                  <thead className="table-dark">
                     <tr>
                         <th>Rank</th>
                         <th>Username</th>
@@ -38,6 +39,7 @@ export function Scores() {
                         <td>0</td>
                         <td>0%</td>
                     </tr>
+                  </thead>
                 </table>
         </main>
   );
