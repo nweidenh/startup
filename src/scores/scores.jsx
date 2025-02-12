@@ -1,4 +1,5 @@
 import React from 'react';
+import './database.css';
 
 export function Scores() {
   return (
