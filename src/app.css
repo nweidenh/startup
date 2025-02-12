@@ -1,7 +1,6 @@
 * {
     font-family: sans-serif;
     font-size: 100%;
-    box-sizing: border-box;
   }
 
 
@@ -9,12 +8,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-  }
-
-html {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    min-width: 375px;
   }
 
 .header{
@@ -24,7 +18,7 @@ html {
 main{
     flex: 1 calc(100vh - 140px);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     text-align: center;
     align-items: center;
@@ -39,6 +33,7 @@ footer {
 menu .nav-item {
     padding: 0 0.3em;
     font-size: 150%;
+    flex-direction: row !important;
 }
 
 .nav-link{
@@ -81,7 +76,7 @@ menu .nav-item {
     }
   }
 
-  @media (max-height: 600px) {
+@media (max-height: 600px) {
     header {
         flex-direction: column;
         display: none;

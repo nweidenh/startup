@@ -4,21 +4,22 @@ import './play.css';
 export function Play() {
   return (
     <main className="container-fluid">
-            <section>
                 <div className="quote-box">
                     <div><h2><b>Username: Special User</b></h2></div>
                     <div className="fontsizer"> Your Color: <span className="yellow">Yellow</span></div> <span></span>
                 </div>
                 <br />
-                    <li>Special User has joined as red. (Websocket placeholder)</li>
-                    <li>Less Special User has joined as yellow. (Websocket placeholder)</li>
-                    <li>Yellow just took their turn. (Websocket placeholder)</li>
-                    <li>It is currently Red's Turn! (Websocket placeholder)</li>
+                <div className='weblist'>
+                    <div>Special User has joined as red. (Websocket placeholder)</div>
+                    <div>Less Special User has joined as yellow. (Websocket placeholder)</div>
+                    <div>Yellow just took their turn. (Websocket placeholder)</div>
+                    <div>It is currently Red's Turn! (Websocket placeholder)</div>
+                </div>
                 <br />
                 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>
                 <br />
                 <br />
-                <table id="table-data" className="table-bordered">
+                <table id="table-data" className="table table-bordered table-warning">
                   <thead>
                     <tr>
                         <th>A</th>
@@ -87,6 +88,7 @@ export function Play() {
                 </table>
                 <br />
                 <div className="alert alert-primary fontsizer">Click the column button where you want to drop your piece!</div>
+                <div>
                 <button type="button" className="btn btn-primary btn-lg">A</button>
                 <button type="button" className="btn btn-primary btn-lg">B</button>
                 <button type="button" className="btn btn-primary btn-lg">C</button>
@@ -94,9 +96,9 @@ export function Play() {
                 <button type="button" className="btn btn-primary btn-lg">E</button>
                 <button type="button" className="btn btn-primary btn-lg">F</button>
                 <button type="button" className="btn btn-primary btn-lg">G</button>
+                </div>
                 <br />
                 <br />
-            </section>
         </main>
   );
 }

@@ -1,5 +1,15 @@
-li{
+.weblist{
     text-align: left;
+}
+
+.text-container {
+  width: 90%; /* Makes the container responsive */
+  max-width: 800px; /* Prevents excessive stretching */
+  margin: 0 auto; /* Centers the container itself */
+  text-align: left; /* Left-aligns text */
+  word-wrap: break-word; /* Ensures text wraps instead of overflowing */
+  overflow-wrap: break-word; /* Alternative for older browsers */
+  padding: 10px;
 }
 
 .quote-box {
@@ -35,6 +45,7 @@ td, th{
     text-align: center;
     border: rgb(57, 10, 10) solid thick;
     padding: 3em;
+    height: 60px;
   }
 
 .tabform {
