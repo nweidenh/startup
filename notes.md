@@ -36,3 +36,6 @@ Install any desired packages with npm install <package name here>
 Add require('<package name here>') to your application's JavaScript
 Use the code the package provides in your JavaScript
 Run your code with node index.js
+
+
+Moving things into the react functionality is easy, but your CSS needs to mostly be reactive, instead of fixed. When transfering over, you end up deleting the htmls and have the new jsx do all the work for you.
