@@ -1,57 +1,13 @@
 <!DOCTYPE html>
-<html lang="'en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Connect 4</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Connect 4</title>
 
-        <link rel="stylesheet" href="main.css" />
-
-        <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-        crossorigin="anonymous"
-      />
-    </head>
-    <body>
-        <header class="container-fluid">
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <a class = "navbar-brand" href="#">
-                        <h1>Connect 4</h1>
-                    </a>
-                    <menu class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link active" href="index.html"><b>Home</b></a></li>
-                            <li class="nav-item"><a href="play_game.html" class="nav-link"><b>Play Game</b></a></li>
-                            <li class="nav-item"><a href="database.html" class="nav-link"><b>Wins Database</b></a></li>
-                            <li class="nav-item"><a href="info.html" class="nav-link"><b>Info</b></a></li>
-                    </menu>
-                </div>
-            </nav>
-        </header> 
-        <main class="container-fluid">
-            <div class="p-3"><h1 class="white-bold-text">This is Connect 4</h1>
-            <h4 class="white-bold-text">The ultimate test of strategy and wits</h4>
-            </div>
-            <img class= "p-3" src="Connect 4 Box.jpg" alt="Connect 4 Box" width="300" height="auto">
-            <form action="play_game.html">
-            <div><h3 class="white-bold-text p-3">To play a game, please login below:</h3></div>
-                <div class="input-group custom-padding">
-                    <span class="input-group-text">Username:</span>
-                    <input class="form-control" type="text" id="text" name="varText" placeholder="Username"/>
-                </div>
-                <div class="input-group custom-padding">
-                    <span class="input-group-text">Password: </span>
-                    <input class="form-control" type="password" id="password" name="varPassword" placeholder="Password"/>
-                </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-        </main>
-        <footer>
-            <div class="navbar bg-light">
-            <span> <h2 class="name">Creator: Nathan Weidenhamer </h2> </span>
-            <a href="https://github.com/nweidenh/startup"><h3 class="githublink">Link To My Github</h3></a>
-            </nav>
-        </footer>
-    </body>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+  </body>
 </html>
