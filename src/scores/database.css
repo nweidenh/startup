@@ -1,9 +1,14 @@
 table{
     background-color:rgb(49, 115, 146);
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 80%;
 }
 
 th{
     font-size: large;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 tr{
