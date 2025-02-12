@@ -4,27 +4,31 @@
     box-sizing: border-box;
   }
 
-html, body{
-    background: black;
-    height: 100%;
+
+.body {
     display: flex;
     flex-direction: column;
-}
+    min-width: 375px;
+  }
+
 .header{
-    display: flex;
+    flex: 0 80px;
 }
 
 main{
-    background: rgb(74, 71, 71);
+    flex: 1 calc(100vh - 140px);
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    flex: 1 calc(100vh - 110px);
+    background: rgb(74, 71, 71);
     color: white;
 }
 
+footer {
+    flex: 0 30px;
+}
 
 menu .nav-item {
     padding: 0 0.3em;
