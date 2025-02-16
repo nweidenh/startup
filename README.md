@@ -102,10 +102,6 @@ For this deliverable I changed my base frol HTML to the react framework, editing
 
 - [x] **CSS Functionality** - Reworked a few design elements that did not work immediately on the switch to JSX and React
 
-- [x] **Responsive to Window Resizing** - The app looks good on all window sizes and devices. If it gets really small then I feel it would be impractical, but that is likely the same for all tiny screens.
+- [x] **Added JSX files for each endopoint** - Each page is able to be naviagted to theough the navifation function on the header.
 
-- [x] **Application Elements** - Emphasized contrast and whitespace. The layout has been changed to be centered on the page and emphasize the main parts of each page. Included boxes for some of the text to make things more readable and broken up. Also changed some of the buttons to be better styled.
-
-- [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
-
-- [x] **Applicaiton Images** - Styled the image on the home screen with padding added, as well as an image-like table on the Play Game page.
+- [x] **Worked Through All Steps In Simon React Instruction** - Completed all steps that were undertaken in the Simon React transition. Adressed edits to "class" turnign them into "className" and followed steps to deploy and transition from HTML framework.
