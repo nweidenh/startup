@@ -92,3 +92,20 @@ For this deliverable I properly styled the applications into its final appearanc
 - [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
 
 - [x] **Applicaiton Images** - Styled the image on the home screen with padding added, as well as an image-like table on the Play Game page.
+
+
+## REACT Phase 1
+
+For this deliverable I changed my base frol HTML to the react framework, editing the code to have all design and functionality passed on.
+
+- [x] **Main Index File** - Created an index file that acts as the main center for naviation, with all other jsx files being directed by it.
+
+- [x] **CSS Functionality** - Reworked a few design elements that did not work immediately on the switch to JSX and React
+
+- [x] **Responsive to Window Resizing** - The app looks good on all window sizes and devices. If it gets really small then I feel it would be impractical, but that is likely the same for all tiny screens.
+
+- [x] **Application Elements** - Emphasized contrast and whitespace. The layout has been changed to be centered on the page and emphasize the main parts of each page. Included boxes for some of the text to make things more readable and broken up. Also changed some of the buttons to be better styled.
+
+- [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
+
+- [x] **Applicaiton Images** - Styled the image on the home screen with padding added, as well as an image-like table on the Play Game page.
