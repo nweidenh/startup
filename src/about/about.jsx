@@ -8,7 +8,8 @@ export function About(props) {
   React.useEffect(() => {
     setQuote('Inspirational Quote will go here!')
     setAuthor('Inspirational Speaker')
-  })
+  }, []);
+  
   return (
     <main className='container-fluid'>
       <div className='content-container'>
