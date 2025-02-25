@@ -37,5 +37,12 @@ Add require('<package name here>') to your application's JavaScript
 Use the code the package provides in your JavaScript
 Run your code with node index.js
 
-
 Moving things into the react functionality is easy, but your CSS needs to mostly be reactive, instead of fixed. When transfering over, you end up deleting the htmls and have the new jsx do all the work for you.
+
+React Part 2
+Arrow Functions can be used in place of functions to make the code more compact
+Arrays are like lists and have a number of pre-programmed methods
+Objects are like dictionaries, they have a number of use cases and you must do JSON when reading them
+React Hooks like useEffect and useState are used to be able to do style components
+Reactivity is based on states and essentailly you change the state and then tell React to update and look at the state
+The Simon Repository can be a great place to get some feeling for how things work

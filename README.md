@@ -92,3 +92,16 @@ For this deliverable I properly styled the applications into its final appearanc
 - [x] **Application Text Content** - Consistent sans-serif font across the whole website, with sizes and bold differing when needed.
 
 - [x] **Applicaiton Images** - Styled the image on the home screen with padding added, as well as an image-like table on the Play Game page.
+
+
+## REACT Phase 1
+
+For this deliverable I changed my base frol HTML to the react framework, editing the code to have all design and functionality passed on.
+
+- [x] **Main Index File** - Created an index file that acts as the main center for naviation, with all other jsx files being directed by it.
+
+- [x] **CSS Functionality** - Reworked a few design elements that did not work immediately on the switch to JSX and React
+
+- [x] **Added JSX files for each endopoint** - Each page is able to be naviagted to theough the navifation function on the header.
+
+- [x] **Worked Through All Steps In Simon React Instruction** - Completed all steps that were undertaken in the Simon React transition. Adressed edits to "class" turnign them into "className" and followed steps to deploy and transition from HTML framework.
