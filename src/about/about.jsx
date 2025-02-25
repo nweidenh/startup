@@ -1,7 +1,14 @@
 import React from 'react';
 import './info.css';
 
-export function About() {
+export function About(props) {
+  const [quote, setQuote] = React.useState('TBD');
+  const [quoteAuthor, setAuthor] = React.useState('TBD')
+
+  React.useEffect(() => {
+    setQuote('Inspirational Quote will go here!')
+    setAuthor('Inspirational Speaker')
+  })
   return (
     <main className='container-fluid'>
       <div className='content-container'>
@@ -19,8 +26,8 @@ export function About() {
       </section>
       <br />
       <section id="Quote" className="text-box">
-        <p>Inspirational Quote will go here! (This will be a 3rd party service call) <br />
-          - Author of inspirational quote</p>
+        <p>{quote} <br />
+        {quoteAuthor}</p>
       </section>
       </div>
     </main>
