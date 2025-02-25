@@ -2,6 +2,18 @@ import React from 'react';
 import './play.css';
 
 export function Play() {
+  const [msg, setMsg] = React.useState('...listening')
+
+  React.useEffect(() =>{
+    setInterval(()=> {
+      const names = ['sue', 'fred']
+      const randomName = names[Math.floor(Math.random() * names.length)]
+      const randomCount = Math.floor(Math.random() * 100) + 1;
+      const newMsg = `${randomName}: ${randomCount}`;
+      setMsg(newMsg);
+    }, 1000);
+  })
+
   return (
     <main className="container-fluid">
                 <div className="quote-box">
@@ -10,7 +22,7 @@ export function Play() {
                 </div>
                 <br />
                 <div className='weblist'>
-                    <div>Special User has joined as red. (Websocket placeholder)</div>
+                    <div>{msg}</div>
                     <div>Less Special User has joined as yellow. (Websocket placeholder)</div>
                     <div>Yellow just took their turn. (Websocket placeholder)</div>
                     <div>It is currently Red's Turn! (Websocket placeholder)</div>
