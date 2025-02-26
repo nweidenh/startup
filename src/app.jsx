@@ -6,8 +6,13 @@ import { Login } from './login/login';
 import { Play } from './play/play';
 import { Scores } from './scores/scores';
 import { About } from './about/about';
+import { AuthState } from './login/authState';
 
 export default function App() {
+  const [Username, setUsername] = React.useState(localStorage.getItem('Username') || '')
+  const currentAuthState = Username ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState)
+
   return (
     <BrowserRouter>
   <div className="body">
@@ -30,11 +35,11 @@ export default function App() {
   <main>
     <Routes>
         <Route path='/' element={<Login 
-          userName = {userName}
+          Username = {Username}
           authState = {authState}
-          onAuthChange = {(userName, authState) =>{
+          onAuthChange = {(Username, authState) =>{
             setAuthState(authState);
-            setUserName(userName);
+            setUsername(Username);
           }}
         />
         } 
