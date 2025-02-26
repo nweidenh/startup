@@ -12,12 +12,12 @@ export function Gameplay(props){
     const color3 = "yellow"
 
     const [data, setData] = useState([
-        { a: 1, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
-        { a: 0, b: 2, c: 0, d: 0, e: 0, f: 0, g: 0 },
-        { a: 0, b: 0, c: -2, d: 0, e: 0, f: 0, g: 0 },
-        { a: 0, b: 0, c: 0, d: 0, e: 0, f: -1, g: 0 },
-        { a: 3, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
-        { a: 0, b: 0, c: 0, d: 0, e: 4, f: 0, g: 0 }
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
+        { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 }
       ]);
 
     const getCellStyle = (score) => {
@@ -30,17 +30,21 @@ export function Gameplay(props){
         }
       };
 
-    const updateScore = (column) => {
+    const updateScore = (column, nextTurn) => {
         setData(prevData => {
             let updated = false;
             const newData = [...prevData].reverse().map((row, index, arr) => {
-                if (!updated && row[column] ==0) {
+                if (!updated && row[column] ==0 && nextTurn == TurnState.Red) {
                     updated = true;
                     return {...row, [column]: row[column] + 1};
                 }
+                if (!updated && row[column] ==0 && nextTurn == TurnState.Yellow) {
+                    updated = true;
+                    return {...row, [column]: row[column] - 1};
+                }
                 return row;
             }).reverse();
-
+            setTurnState(nextTurn)
             return newData;
         });
     }
@@ -55,68 +59,7 @@ export function Gameplay(props){
                             {Object.keys(data[0]).map((col) => (
                             <th key={col}>{col}</th>
                             ))}
-                            {/*<th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>D</th>
-                            <th>E</th>
-                            <th>F</th>
-                            <th>G</th>*/}
                           </tr>
-                          {/*<tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td className="red"></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td className="yellow"></td>
-                            <td className="red"></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td className="yellow"></td>
-                            <td className="red"></td>
-                            <td style={getCellStyle(row.score)}>{row.score}</td>
-    </tr>*/}
                         </thead>
                         <tbody>
                             {data.map((row, rowIndex) => (
@@ -137,19 +80,11 @@ export function Gameplay(props){
                         </tbody>
                     </table>
                     <div>
-                    {Object.keys(data[0]).map((col) => (
-                    <button key={col} onClick={() => updateScore(col)}>
-                    {col}
-                    </button>
-                    ))}
-                    </div>
-                    <div>
-                    {turnState === TurnState.Yellow && console.log(turnState)}
                     {turnState === TurnState.Red && (
-                        <RedMove Username={Username} onRedTurn={() => setTurnState(TurnState.Yellow)} />
+                        <RedMove Username={Username} onRedTurn={(col) => updateScore(col, TurnState.Yellow)} />
                         )}
                     {turnState === TurnState.Yellow && (
-                        <YellowMove Username={Username} onYellowTurn={() => setTurnState(TurnState.Red)} />
+                        <YellowMove Username={Username} onYellowTurn={(col) => updateScore(col, TurnState.Red)} />
                         )}
                     </div>
                     <br />

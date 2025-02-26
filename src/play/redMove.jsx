@@ -4,11 +4,12 @@ import { TurnState } from './turnState';
 
 
 export function RedMove(props) {
-    const [turn, setTurn] = React.useState(props.TurnState)
+    const columnHeaders = ['a','b','c','d','e','f','g']
 
     function redTurn(){
         localStorage.setItem('turn', 'yellow')
-        props.onRedTurn();
+        const columnIndex = Math.floor(Math.random() * columnHeaders.length);
+        props.onRedTurn(columnHeaders[columnIndex]);
     }
   
     return (
