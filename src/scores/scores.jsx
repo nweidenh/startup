@@ -2,9 +2,40 @@ import React from 'react';
 import './database.css';
 
 export function Scores() {
+  const [wins, setWins] = React.useState([]);
+  const [losses, setLs] = React.useState([]);
+
+  React.useEffect(() => {
+    const winsText = localStorage.getItem('wins')
+    const lossText = localStorage.getItem('loss')
+    if(winsText){
+      setWins(JSON.parse(winsText))
+      setLs(JSON.parse(lossText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
+    }
+    }, []);
+
+  const scoreRows = [];
+  if (wins.length > 0){
+    for (const [i,wins] of wins.entries())
+      scoreRows.push(
+        <tr key = {i}>
+          <td>{i}</td>
+          <td>{wins.name.split('@')[0]}</td>
+          <td>{wins.score}</td>
+          <td>{wins.date}</td>
+        </tr>
+      );
+  } else{
+    scoreRows.push(
+      <tr key = '0'>
+        <td colSpan = '4'> No One Has Played A Game Yet</td>
+      </tr>
+    );
+  }
+
   return (
     <main className="container-fluid text-center">
-        <p><h2>Wins Database</h2></p>
+        <h1>Check Out The Leaderboard</h1>
                 <table className="table table-warning table-striped-columns">
                   <thead className="table-dark">
                     <tr>

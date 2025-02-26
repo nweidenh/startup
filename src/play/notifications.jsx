@@ -52,6 +52,7 @@ export function Notifications(props) {
         <div className="quote-box">
         <h2><b>Username: {props.Username}</b></h2>
         <div className="fontsizer"> Your Color: <span className="yellow">Yellow</span></div>
+        The computer will play as <span className="red">red</span>
         </div>
         <div id = 'player-messages'>{createMessageList()}</div>
         </div>

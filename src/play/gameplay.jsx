@@ -49,10 +49,15 @@ export function Gameplay(props){
             } else{
                 setMoveResult("No, please try again");
             }
+            // Simon Format[{name: "a", score: 2, date: "2/26/2025"}, {name: "a", score: 2, date: "2/26/2025"}] 
             if(checkWin(newData) === 1){
                 setWinner("Congrats! You Win!");
+                localStorage.setItem("Win", Username)
+                localStorage.setItem("Loss", "Computer")
             } else if(checkWin(newData) === -1){
                 setWinner("Sorry to say it, but the computer beat you!");
+                localStorage.setItem("Win", "Computer")
+                localStorage.setItem("Loss", Username)
             } else{
                 setWinner("No winner yet...")
             }
