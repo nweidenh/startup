@@ -17,7 +17,7 @@ export function Notifications(props) {
     function handleGameEvent(event){
         setEvent((prevEvents) => {
             let newEvents = [event, ...prevEvents];
-            if (newEvents.lenght > 5) {
+            if (newEvents.length > 5) {
                 newEvents = newEvents.slice(1,5);
             }
             return newEvents;
@@ -39,22 +39,21 @@ export function Notifications(props) {
             }
             messageArray.push(
                 <div key= {i}>
-                    <span className = {'player-event'}>{event.from.split('@')[0]}</span>
+                    <span className = {'player-event'}></span>
                     {message}
                 </div>
-            )
+            );
         }
+        return messageArray;
     }
 
     return(
-        <main className="container-fluid">
+        <div className="container-fluid">
         <div className="quote-box">
-        <div><h2><b>Username: {props.Username}</b></h2></div>
-        <div className="fontsizer"> Your Color: <span className="yellow">Yellow</span></div> <span></span>
+        <h2><b>Username: {props.Username}</b></h2>
+        <div className="fontsizer"> Your Color: <span className="yellow">Yellow</span></div>
         </div>
-        <div className='player-event'>
         <div id = 'player-messages'>{createMessageList()}</div>
         </div>
-        </main>
-    )
+    );
 }
