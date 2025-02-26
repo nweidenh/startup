@@ -18,9 +18,9 @@ export default function App() {
                         <h1>Connect 4</h1>
                     </NavLink>
                     <menu className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item"><NavLink className="nav-link active" to=""><b>Home</b></NavLink></li>
-                            <li className="nav-item"><NavLink to="play" className="nav-link"><b>Play Game</b></NavLink></li>
-                            <li className="nav-item"><NavLink to="scores" className="nav-link"><b>Wins Database</b></NavLink></li>
+                            <li className="nav-item"><NavLink to="" className="nav-link active"><b>Home</b></NavLink></li>
+                            {authState === AuthState.Authenticated && (<li className="nav-item"><NavLink to="play" className="nav-link"><b>Play Game</b></NavLink></li>)}
+                            {authState === AuthState.Authenticated && (<li className="nav-item"><NavLink to="scores" className="nav-link"><b>Wins Database</b></NavLink></li>)}
                             <li className="nav-item"><NavLink to="about" className="nav-link"><b>Info</b></NavLink></li>
                     </menu>
                 </div>
@@ -29,7 +29,16 @@ export default function App() {
 
   <main>
     <Routes>
-        <Route path='/' element={<Login />} exact />
+        <Route path='/' element={<Login 
+          userName = {userName}
+          authState = {authState}
+          onAuthChange = {(userName, authState) =>{
+            setAuthState(authState);
+            setUserName(userName);
+          }}
+        />
+        } 
+        exact />
         <Route path='/play' element={<Play />} />
         <Route path='/scores' element={<Scores />} />
         <Route path='/about' element={<About />} />
