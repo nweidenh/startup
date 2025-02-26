@@ -1,24 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Unauthenticated } from './unauthenticated';
+import { authenticated } from './authenticated';
 
 export function Login({Username, authState, onAuthChange}) {
-  const [Username, setUsername] = React.useState('');
-  const [Password, setPassword] = React.useState('');
-  const navigate = useNavigate();
-
-  function loginUser(){
-    localStorage.setItem('Username', Username);
-    localStorage.setItem('Password', Password)
-    setUsername = Username;
-  }
-
-  function userChange(e){
-    setUsername(e.target.value);
-  }
-
-  function passwordChange(e){
-    setPassword(e.target.value);
-  }
 
   return (
     <main className="container-fluid">
@@ -26,7 +11,13 @@ export function Login({Username, authState, onAuthChange}) {
     <h4 className="white-bold-text">The ultimate test of strategy and wits</h4>
     </div>
     <img className= "p-3" src="Connect 4 Box.jpg" alt="Connect 4 Box" width="300" height="auto" />
-    <form action="play">
+    {authState === AuthState.authenticated && (
+      <authenticated Username={Username} onLogout= {() => onAuthChange(Username, AuthState.Unauthenticated)} />
+    )}
+    {authState === AuthState.Unauthenticated && (
+      <Unauthenticated Username={Username} onLogin={(loginUserName) => {onAuthChange(loginUserName, AuthState.Authenticated)}} />
+    )}
+    {/*<form action="play">
     <div><h3 className="white-bold-text p-3">To play a game, please login below:</h3></div>
         <div className="input-group custom-padding">
             <span className="input-group-text">Username:</span>
@@ -38,7 +29,7 @@ export function Login({Username, authState, onAuthChange}) {
         </div>
             <button onClick={loginUser} type="submit" className="btn btn-primary">Login</button>
     </form>
-    <br />
+  <br />*/}
 </main>
   );
 }
