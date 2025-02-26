@@ -7,9 +7,7 @@ import { useState } from "react";
 export function Gameplay(props){
     const Username = props.Username;
     const [turnState, setTurnState] = React.useState(props.turnState)
-    const color1 = "blue"
-    const color2 = "red"
-    const color3 = "yellow"
+    const [moveResult, setMoveResult] = React.useState('')
 
     const [data, setData] = useState([
         { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
@@ -34,17 +32,22 @@ export function Gameplay(props){
         setData(prevData => {
             let updated = false;
             const newData = [...prevData].reverse().map((row, index, arr) => {
-                if (!updated && row[column] ==0 && nextTurn == TurnState.Red) {
+                if (!updated && row[column] == 0 && nextTurn == TurnState.Red) {
                     updated = true;
                     return {...row, [column]: row[column] + 1};
                 }
-                if (!updated && row[column] ==0 && nextTurn == TurnState.Yellow) {
+                if (!updated && row[column] == 0 && nextTurn == TurnState.Yellow) {
                     updated = true;
                     return {...row, [column]: row[column] - 1};
                 }
                 return row;
             }).reverse();
-            setTurnState(nextTurn)
+            if (updated == true){
+                setTurnState(nextTurn)
+                setMoveResult("Yes!")
+            } else{
+                setMoveResult("No, please try again")
+            }
             return newData;
         });
     }
@@ -67,14 +70,6 @@ export function Gameplay(props){
                                     {Object.values(row).map((value, colIndex) => (
                                         <td style={getCellStyle(value,colIndex)} key={colIndex}>{value}</td>
                                     ))}
-                                    {/*<td style={getCellStyle(row.a)}>{row.a}</td>
-                                    <td> <button onClick={() => updateScore(1, 2, +1)}>Up</button></td>
-                                    <td style={getCellStyle(row.b)}>{row.b}</td>
-                                    <td style={getCellStyle(row.c)}>{row.c}</td>
-                                    <td style={getCellStyle(row.d)}>{row.d}</td>
-                                    <td style={getCellStyle(row.e)}>{row.e}</td>
-                                    <td style={getCellStyle(row.f)}>{row.f}</td>
-                                    <td style={getCellStyle(row.g)}>{row.g}</td>*/}
                                 </tr>
                             ))}
                         </tbody>
@@ -86,6 +81,8 @@ export function Gameplay(props){
                     {turnState === TurnState.Yellow && (
                         <YellowMove Username={Username} onYellowTurn={(col) => updateScore(col, TurnState.Red)} />
                         )}
+                        <br />
+                    <h1>Move Success? {moveResult}</h1>
                     </div>
                     <br />
             </main>
