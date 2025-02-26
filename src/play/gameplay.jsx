@@ -50,11 +50,11 @@ export function Gameplay(props){
                 setMoveResult("No, please try again");
             }
             if(checkWin(newData) === 1){
-                winner = setWinner("Congrats! You Win!");
+                setWinner("Congrats! You Win!");
             } else if(checkWin(newData) === -1){
-                winner = setWinner("Sorry to say it, but the computer beat you!");
+                setWinner("Sorry to say it, but the computer beat you!");
             } else{
-                winner = setWinner("No winner yet...")
+                setWinner("No winner yet...")
             }
                 return newData;
         });
@@ -109,11 +109,15 @@ export function Gameplay(props){
         }
     }
 
+    const resetBoard = () => {
+        setData(prevData => prevData.map(row =>
+            Object.fromEntries(Object.keys(row).map(col=> [col,0]))
+        ));
+    }
 
 
     return (
         <main className="container-fluid">
-                    {/*<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>*/}
                     <h1>And the Winner is? {winner}</h1>
                     <table id="table-data" className="table table-bordered table-warning">
                       <thead>
@@ -142,6 +146,7 @@ export function Gameplay(props){
                         )}
                         <br />
                     <h1>Move Success? {moveResult}</h1>
+                    <button onClick={() => resetBoard()} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Reset Board </button>
                     </div>
                     <br />
             </main>
