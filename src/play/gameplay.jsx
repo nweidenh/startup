@@ -1,12 +1,14 @@
 import React from "react";
+import { TurnState } from "./turnState";
+import { redMove } from "./redMove";
+import { yellowMove } from "./yellowMove";
 
-export function Gameplay(props){
-
+export function Gameplay(turnState, onTurnChange){
+    const Username = props.Username;
 
     return (
         <main className="container-fluid">
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>
-                    <br />
+                    {/*<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>*/}
                     <br />
                     <table id="table-data" className="table table-bordered table-warning">
                       <thead>
@@ -75,18 +77,14 @@ export function Gameplay(props){
                           </tr>
                         </thead>
                     </table>
-                    <br />
-                    <div className="alert alert-primary fontsizer">Click the column button where you want to drop your piece!</div>
                     <div>
-                    <button type="button" className="btn btn-primary btn-lg">A</button>
-                    <button type="button" className="btn btn-primary btn-lg">B</button>
-                    <button type="button" className="btn btn-primary btn-lg">C</button>
-                    <button type="button" className="btn btn-primary btn-lg">D</button>
-                    <button type="button" className="btn btn-primary btn-lg">E</button>
-                    <button type="button" className="btn btn-primary btn-lg">F</button>
-                    <button type="button" className="btn btn-primary btn-lg">G</button>
+                    {turnState === TurnState.Red && (
+                        <redMove Username={Username} onRedTurn={() => onTurnChange(Username, TurnState.Yellow)} />
+                        )}
+                    {turnState === TurnState.Yellow && (
+                        <yellowMove Username={Username} onYellowTurn={() => onTurnChange(Username, TurnState.Red)} />
+                        )}
                     </div>
-                    <br />
                     <br />
             </main>
       );
