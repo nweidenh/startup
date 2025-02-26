@@ -21,10 +21,8 @@ class GameEventNotifier{
     constructor(){
         setInterval(()=> {
             const names = ['Sue', 'John', 'Nathan']
-            const events = [' is watching ', ' joined ', ' forfeited ']
+            const things = [' is watching ', ' joined ', ' forfeited ']
             const randomName = names[Math.floor(Math.random() * names.length)]
-            const randomEvent = events[Math.floor(Math.random() * names.length)]
-            const newMsg = (randomName + randomEvent + "the game");
             this.broadcastEvent(randomName, GameEvent.End, {winner: randomName})
           }, 5000);
     }
@@ -35,14 +33,14 @@ class GameEventNotifier{
     }
 
     addHandler(handler) {
-        this.handler.push(handler)
+        this.handlers.push(handler)
     }
 
     removeHandler(handler) {
-        this.handler.filter((h) => h !== handler);
+        this.handlerss.filter((h) => h !== handler);
     }
     recieveEvent(event){
-        this.events.push(events);
+        this.events.push(event);
         this.handlers.forEach((handler) => {
             handler(event);
         });

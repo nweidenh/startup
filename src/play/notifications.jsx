@@ -1,9 +1,10 @@
 import React from "react";
-import {GameNotifier, GameEvent} from './gameNotes'
+import {GameEvent, GameNotifier} from './gameNotes'
+import './notifications.css'
 
 export function Notifications(props) {
-    const Username = props.Username
-    const [msg, setMsg] = React.useState([])
+    const Username = props.Username;
+    const [events, setEvent] = React.useState([]);
   
     React.useEffect(() =>{
         GameNotifier.addHandler(handleGameEvent);
@@ -20,7 +21,7 @@ export function Notifications(props) {
                 newEvents = newEvents.slice(1,5);
             }
             return newEvents;
-        })
+        });
     }
 
     function createMessageList() {
@@ -28,14 +29,20 @@ export function Notifications(props) {
         for (const[i, event] of events.entries()){
             let message = 'unknown';
             if (event.type === GameEvent.End) {
-                message = `${event.value.winner} won a game`
+                message = `${event.value.winner} won a game`;
             } else if (event.type === GameEvent.Start){
-                message = `${event.from} joined a game`
+                message = `${event.from} joined a game`;
             } else if (event.type === GameEvent.Observe){
-                message = `${event.from} is watching a game`
+                message = `${event.from} is watching a game`;
             } else if (event.type === GameEvent.System){
                 message = event.value.msg;
             }
+            messageArray.push(
+                <div key= {i}>
+                    <span className = {'player-event'}>{event.from.split('@')[0]}</span>
+                    {message}
+                </div>
+            )
         }
     }
 
@@ -45,9 +52,8 @@ export function Notifications(props) {
         <div><h2><b>Username: {props.Username}</b></h2></div>
         <div className="fontsizer"> Your Color: <span className="yellow">Yellow</span></div> <span></span>
         </div>
-        <br />
-        <div className='weblist'>
-        <div>{msg}</div>
+        <div className='player-event'>
+        <div id = 'player-messages'>{createMessageList()}</div>
         </div>
         </main>
     )

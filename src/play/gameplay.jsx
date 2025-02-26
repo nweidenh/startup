@@ -5,7 +5,6 @@ export function Gameplay(props){
 
     return (
         <main className="container-fluid">
-                    <br />
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Forfeit Game</button>
                     <br />
                     <br />
