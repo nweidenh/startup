@@ -3,14 +3,11 @@ import './database.css';
 
 export function Scores() {
   const [wins, setWins] = React.useState([]);
-  const [losses, setLs] = React.useState([]);
 
   React.useEffect(() => {
-    const winsText = localStorage.getItem('wins')
-    const lossText = localStorage.getItem('loss')
+    const winsText = localStorage.getItem('Wins')
     if(winsText){
-      setWins(JSON.parse(winsText))
-      setLs(JSON.parse(lossText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
+      setWins(JSON.parse(winsText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
     }
     }, []);
 
@@ -20,57 +17,32 @@ export function Scores() {
       scoreRows.push(
         <tr key = {i}>
           <td>{i}</td>
-          <td>{wins.name.split('@')[0]}</td>
-          <td>{wins.score}</td>
-          <td>{wins.date}</td>
+          <td>{wins.name}</td>
+          <td>{wins.winner}</td>
+          <td>{wins.loser}</td>
         </tr>
       );
   } else{
     scoreRows.push(
       <tr key = '0'>
-        <td colSpan = '4'> No One Has Played A Game Yet</td>
+        <td colSpan = '5'> No One Has Played A Game Yet</td>
       </tr>
     );
   }
 
   return (
     <main className="container-fluid text-center">
-        <h1>Check Out The Leaderboard</h1>
+        <h1>Check Out All The Games That Have Been Played</h1>
                 <table className="table table-warning table-striped-columns">
                   <thead className="table-dark">
                     <tr>
-                        <th>Rank</th>
-                        <th>Username</th>
-                        <th>Wins</th>
-                        <th>Losses</th>
-                        <th>Draws</th>
-                        <th>Win Percentage</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Special User</td>
-                        <td>10</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>100%</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Less Special User</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>0</td>
-                        <td>50%</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Not Special User</td>
-                        <td>0</td>
-                        <td>10</td>
-                        <td>0</td>
-                        <td>0%</td>
+                        <th>GameID</th>
+                        <th>Player Name</th>
+                        <th>Winner</th>
+                        <th>Loser</th>
                     </tr>
                   </thead>
+                  <tbody id='wins'>{scoreRows}</tbody>
                 </table>
         </main>
   );

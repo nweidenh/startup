@@ -4,6 +4,8 @@ import { RedMove } from "./RedMove";
 import { YellowMove } from "./YellowMove";
 import { GameEnd } from "./GameEnd";
 import { useState } from "react";
+import { GameEvent, GameNotifier } from "./gameNotes";
+import { Scores } from "../scores/scores";
 
 export function Gameplay(props){
     const Username = props.Username;
@@ -53,15 +55,27 @@ export function Gameplay(props){
             // Simon Format[{name: "a", score: 2, date: "2/26/2025"}, {name: "a", score: 2, date: "2/26/2025"}] 
             if(checkWin(newData) === 1){
                 setWinner("Congrats! You Win!");
-                localStorage.setItem("Wins", {'name': Username, 'winner': Username, 'loser': 'Computer'})
+                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
+                updateWinsStorage({'name': Username, 'winner': Username, 'loser': 'Computer'})
             } else if(checkWin(newData) === -1){
                 setWinner("Sorry to say it, but the computer beat you!");
-                localStorage.setItem("Wins", {'name': Username, 'winner': 'Computer', 'loser': Username})
+                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
+                updateWinsStorage({'name': Username, 'winner': 'Computer', 'loser': Username})
             } else{
                 setWinner("No winner yet...")
             }
                 return newData;
         });
+    }
+
+    function updateWinsStorage(recentWinner){
+        let wins = [];
+        winsText = localStorage.getItem('wins');
+        if (winsText.length > 0){
+            wins = JSON.parse(winsText);
+        } 
+        wins.push(recentWinner)
+        localStorage.setItem('wins', JSON.stringify(wins))
     }
 
     const checkWin = (board) => {
@@ -108,6 +122,7 @@ export function Gameplay(props){
         setData(prevData => prevData.map(row =>
             Object.fromEntries(Object.keys(row).map(col=> [col,0]))
         ));
+        GameNotifier.broadcastEvent(Username, GameEvent.Start, {});
         setTurnState(TurnState.Yellow)
     }
 

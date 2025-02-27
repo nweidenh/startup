@@ -10,7 +10,7 @@ export function Play(props) {
   return (
     <main className="container-fluid">
         <Notifications Username = {props.Username} />
-        <Gameplay Username = {props.Username} turnState = {TurnState.Yellow} />
+        <Gameplay Username = {props.Username} turnState = {TurnState.GameEnd} />
         </main>
   );
 }
