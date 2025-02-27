@@ -17,19 +17,6 @@ export function Login({Username, authState, onAuthChange}) {
       <Unauthenticated Username={Username} onLogin={(loginUser) => {onAuthChange(loginUser, AuthState.Authenticated)}} />
     )}
     </div>
-    {/*<form action="play">
-    <div><h3 className="white-bold-text p-3">To play a game, please login below:</h3></div>
-        <div className="input-group custom-padding">
-            <span className="input-group-text">Username:</span>
-            <input className="form-control" type="text" id="text" name="varText" placeholder="Username" onChange={userChange}/>
-        </div>
-        <div className="input-group custom-padding">
-            <span className="input-group-text">Password: </span>
-            <input className="form-control" type="password" id="password" name="varPassword" placeholder="Password" onChange={passwordChange}/>
-        </div>
-            <button onClick={loginUser} type="submit" className="btn btn-primary">Login</button>
-    </form>
-  <br />*/}
 </main>
   );
 }

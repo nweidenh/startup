@@ -46,3 +46,7 @@ Objects are like dictionaries, they have a number of use cases and you must do J
 React Hooks like useEffect and useState are used to be able to do style components
 Reactivity is based on states and essentailly you change the state and then tell React to update and look at the state
 The Simon Repository can be a great place to get some feeling for how things work
+
+The functionality within VS code for checking whether code is correct is not as built out as in python, so when checking for errors, first jsut make sure all the variables are correct.
+
+Using different useStates allows for different authentication status or whose turn it is. useEffect works well on like a, when this first loads, or when this happens, do this thing.

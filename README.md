@@ -105,3 +105,15 @@ For this deliverable I changed my base frol HTML to the react framework, editing
 - [x] **Added JSX files for each endopoint** - Each page is able to be naviagted to theough the navifation function on the header.
 
 - [x] **Worked Through All Steps In Simon React Instruction** - Completed all steps that were undertaken in the Simon React transition. Adressed edits to "class" turnign them into "className" and followed steps to deploy and transition from HTML framework.
+
+## REACT Phase 2
+
+For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
+
+- [x] **All functionality implemented or mocked out** - Each page has all functionality at least mocked out. 
+  - [x] **About** Page I mocked out implementation of the 3rd party service call to upload a quote. 
+  - [x] **Login** I implemented the Login page that now allows the user to login with authenticated and unauthenticated states. The user info is currently being stored in local memory. 
+  - [x] **PlayGame** I  implemented functionality for the play game tab. This includes the logic of how to play connect4. I also changed the functionality so that instead of playing against another player, you are now playing against the computer for ease of implementation. This page also accepts notifications which are randomly generated for now. 
+  - [x] **Database** I also implemented the database table. This adds new lines to the table whenever a game is completed. I changed the functionality to focus on just putting the games played in the table, rather than the previously desired functionality. Currently the winners are stored in local memory.
+
+- [x] **Hooks** - Used useState and useEffect hooks throughout the website with some implementation on each phase. The clearest examples of this are the useEffect with the notifications and score updateing, as well as useState within the play game, whose turn is it, functionality.
