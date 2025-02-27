@@ -2,6 +2,7 @@ import React from "react";
 import { TurnState } from "./turnState";
 import { RedMove } from "./RedMove";
 import { YellowMove } from "./YellowMove";
+import { GameEnd } from "./GameEnd";
 import { useState } from "react";
 
 export function Gameplay(props){
@@ -52,12 +53,10 @@ export function Gameplay(props){
             // Simon Format[{name: "a", score: 2, date: "2/26/2025"}, {name: "a", score: 2, date: "2/26/2025"}] 
             if(checkWin(newData) === 1){
                 setWinner("Congrats! You Win!");
-                localStorage.setItem("Win", Username)
-                localStorage.setItem("Loss", "Computer")
+                localStorage.setItem("Wins", {'name': Username, 'winner': Username, 'loser': 'Computer'})
             } else if(checkWin(newData) === -1){
                 setWinner("Sorry to say it, but the computer beat you!");
-                localStorage.setItem("Win", "Computer")
-                localStorage.setItem("Loss", Username)
+                localStorage.setItem("Wins", {'name': Username, 'winner': 'Computer', 'loser': Username})
             } else{
                 setWinner("No winner yet...")
             }
@@ -101,15 +100,6 @@ export function Gameplay(props){
                         nc += dc;
                     }
                 }
-                // if(board[r][colKeys[c]] === 1){
-                //     if(board[r+1][colKeys[c]] === 1){
-                //         if (board[r+2] [colKeys[c]] === 1){
-                //             if (board[r+3] [colKeys[c]] === 1){
-                //                 winner = true;
-                //             }
-                //         }
-                //     }
-                // } else if (board[r]
             }
         }
     }
@@ -118,6 +108,7 @@ export function Gameplay(props){
         setData(prevData => prevData.map(row =>
             Object.fromEntries(Object.keys(row).map(col=> [col,0]))
         ));
+        setTurnState(TurnState.Yellow)
     }
 
 
@@ -149,6 +140,9 @@ export function Gameplay(props){
                     {turnState === TurnState.Yellow && (
                         <YellowMove Username={Username} onYellowTurn={(col) => updateScore(col, TurnState.Red)} />
                         )}
+                    {turnState === TurnState.GameEnd && (
+                        <GameEnd Username={Username} onGameEnd={()=> resetBoard()}/>
+                    )}
                         <br />
                     <h1>Move Success? {moveResult}</h1>
                     <button onClick={() => resetBoard()} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLive"> Reset Board </button>

@@ -6,7 +6,6 @@ import { Gameplay } from './gameplay';
 import { TurnState } from './turnState';
 
 export function Play(props) {
-  const [turnState, setTurnState] = React.useState(TurnState.Yellow);
 
   return (
     <main className="container-fluid">
