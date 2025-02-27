@@ -25,7 +25,7 @@ export function Scores() {
   } else{
     scoreRows.push(
       <tr key = '0'>
-        <td colSpan = '5'> No One Has Played A Game Yet</td>
+        <td colSpan = '4'> No One Has Played A Game Yet</td>
       </tr>
     );
   }

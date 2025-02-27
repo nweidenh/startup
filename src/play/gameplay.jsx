@@ -10,8 +10,8 @@ import { Scores } from "../scores/scores";
 export function Gameplay(props){
     const Username = props.Username;
     const [turnState, setTurnState] = React.useState(props.turnState)
-    const [moveResult, setMoveResult] = React.useState('')
-    const [winner, setWinner] = React.useState('')
+    const [moveResult, setMoveResult] = React.useState([])
+    const [winner, setWinner] = React.useState([])
 
     const [data, setData] = useState([
         { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0 },
@@ -57,10 +57,12 @@ export function Gameplay(props){
                 setWinner("Congrats! You Win!");
                 GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
                 updateWinsStorage({'name': Username, 'winner': Username, 'loser': 'Computer'})
+                setTurnState(TurnState.GameEnd)
             } else if(checkWin(newData) === -1){
                 setWinner("Sorry to say it, but the computer beat you!");
                 GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
                 updateWinsStorage({'name': Username, 'winner': 'Computer', 'loser': Username})
+                setTurnState(TurnState.GameEnd)
             } else{
                 setWinner("No winner yet...")
             }
@@ -70,12 +72,12 @@ export function Gameplay(props){
 
     function updateWinsStorage(recentWinner){
         let wins = [];
-        winsText = localStorage.getItem('wins');
-        if (winsText.length > 0){
+        const winsText = localStorage.getItem('Wins');
+        if (winsText !== null){
             wins = JSON.parse(winsText);
         } 
         wins.push(recentWinner)
-        localStorage.setItem('wins', JSON.stringify(wins))
+        localStorage.setItem('Wins', JSON.stringify(wins))
     }
 
     const checkWin = (board) => {
