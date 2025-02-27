@@ -5,6 +5,7 @@ export function Scores() {
   const [wins, setWins] = React.useState([]);
 
   React.useEffect(() => {
+    setWins('')
     const winsText = localStorage.getItem('Wins')
     if(winsText){
       setWins(JSON.parse(winsText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
@@ -13,13 +14,13 @@ export function Scores() {
 
   const scoreRows = [];
   if (wins.length > 0){
-    for (const [i,wins] of wins.entries())
+    for (const [i,win] of wins.entries())
       scoreRows.push(
         <tr key = {i}>
           <td>{i}</td>
-          <td>{wins.name}</td>
-          <td>{wins.winner}</td>
-          <td>{wins.loser}</td>
+          <td>{win.name}</td>
+          <td>{win.winner}</td>
+          <td>{win.loser}</td>
         </tr>
       );
   } else{

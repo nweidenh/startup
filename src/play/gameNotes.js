@@ -37,7 +37,7 @@ class GameEventNotifier{
     }
 
     removeHandler(handler) {
-        this.handlerss.filter((h) => h !== handler);
+        this.handlers.filter((h) => h !== handler);
     }
     recieveEvent(event){
         this.events.push(event);
