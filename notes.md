@@ -50,3 +50,6 @@ The Simon Repository can be a great place to get some feeling for how things wor
 The functionality within VS code for checking whether code is correct is not as built out as in python, so when checking for errors, first jsut make sure all the variables are correct.
 
 Using different useStates allows for different authentication status or whose turn it is. useEffect works well on like a, when this first loads, or when this happens, do this thing.
+
+Startup Service: 
+![Mock](backEndFetch.png)
