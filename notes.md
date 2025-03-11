@@ -55,3 +55,5 @@ Startup Service:
 ![Mock](backEndFetch.png)
 
 Codepen for Fetching a third party service: https://codepen.io/Nathan-Weidenhamer/pen/OPJxgPV?editors=0010
+
+NPM is a powerful tool when using vite and node to make the backend and frontend work

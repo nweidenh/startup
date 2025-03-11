@@ -10,6 +10,8 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 let users = [];
 let results = [];
 
+app.use(express.static('public'));
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
@@ -64,7 +66,23 @@ const verifyAuth = async (req, res, next) =>{
     }
 };
 
-apiRouter.get('/scores', verifyAUth, (_req, res) =>{
-    res.send(scores);
+// Get Results
+apiRouter.get('/results', verifyAuth, (_req, res) =>{
+    res.send(results);
 });
 
+// Post Result
+apiRouter.post('/result', verifyAuth, (req, res) =>{
+    results = updateResults(req.body);
+    res.send(results);
+});
+
+//Error Handler
+app.use(function (err, req, res, next) {
+    res.status(555).send({type: err.name, message: err.message});
+});
+
+//Return to home page as default
+app.use((_req, res) => {
+    res.sendFile('index.html', {root: 'public'});
+});
