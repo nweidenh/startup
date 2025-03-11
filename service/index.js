@@ -117,24 +117,14 @@ function clearAuthCookie(res, user) {
     res.clearCookie('token');
   }
 
-//Update Results - NEED TO FIX THIS
+//Update Results
 function updateResults(newResult){
     let found = false;
-    for (const [i, prevScore] of results.entries()){
-        if (newScore.score > prevScore.score) {
-            scores.splice(i, 0, newScore);
-            found = true;
-            break;
-          }
+    results.push(newResult);
+
+    if (results.length > 5) {
+        results.length = 5;
     }
       
-    if (!found) {
-        scores.push(newScore);
-    }
-      
-    if (scores.length > 10) {
-        scores.length = 10;
-    }
-      
-    return scores;
+    return results;
 }
