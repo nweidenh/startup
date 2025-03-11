@@ -119,7 +119,6 @@ function clearAuthCookie(res, user) {
 
 //Update Results
 function updateResults(newResult){
-    let found = false;
     results.push(newResult);
 
     if (results.length > 5) {
