@@ -53,3 +53,5 @@ Using different useStates allows for different authentication status or whose tu
 
 Startup Service: 
 ![Mock](backEndFetch.png)
+
+Codepen for Fetching a third party service: https://codepen.io/Nathan-Weidenhamer/pen/OPJxgPV?editors=0010
