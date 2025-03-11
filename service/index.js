@@ -3,7 +3,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
-const { createServerModuleRunner } = require('vite');
+//const { createServerModuleRunner } = require('vite');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -34,7 +34,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 //Login
 apiRouter.post('/auth/login', async (req, res) => {
-    const user = await findUser('username', req.body.username);
+    const user = await getUser('username', req.body.username);
     if (user){
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4()
@@ -48,17 +48,16 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 //Logout
 apiRouter.delete('/auth/logout', async (req,res) => {
-    const user = await findUser('token', req.cookies[authCookieName]);
+    const user = await getUser('token', req.cookies[authCookieName]);
     if (user) {
-        delete user.token;
+        clearAuthCookie(res, user)
     }
-    res.clearCookie(authCookieName);
     res.status(204).end();
 });
 
 //Verify User is Authorized
 const verifyAuth = async (req, res, next) =>{
-    const user = await findUser('token', req.cookies[authCookieName]);
+    const user = await getUser('token', req.cookies[authCookieName]);
     if (user){
         next();
     } else{
@@ -82,7 +81,60 @@ app.use(function (err, req, res, next) {
     res.status(555).send({type: err.name, message: err.message});
 });
 
-//Return to home page as default
-app.use((_req, res) => {
-    res.sendFile('index.html', {root: 'public'});
-});
+
+async function createUser(username, password) {
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    const user = {
+        username: username,
+        password: passwordHash,
+    };
+
+    users.push(user);
+
+    return user;
+}
+
+function setAuthCookie(res, user){
+    user.token = uuid.v4()
+
+    res.cookie('token', user.token, {
+        secure: true,
+        httpOnly: true,
+        sameSite: 'strict',
+    });
+}
+
+function getUser(field, value) {
+    if (value) {
+      return users.find((user) => user[field] === value);
+    }
+    return null;
+  }
+
+function clearAuthCookie(res, user) {
+    delete user.token;
+    res.clearCookie('token');
+  }
+
+//Update Results - NEED TO FIX THIS
+function updateResults(newResult){
+    let found = false;
+    for (const [i, prevScore] of results.entries()){
+        if (newScore.score > prevScore.score) {
+            scores.splice(i, 0, newScore);
+            found = true;
+            break;
+          }
+    }
+      
+    if (!found) {
+        scores.push(newScore);
+    }
+      
+    if (scores.length > 10) {
+        scores.length = 10;
+    }
+      
+    return scores;
+}
