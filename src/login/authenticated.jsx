@@ -5,9 +5,15 @@ import { useNavigate } from 'react-router-dom';
 export function Authenticated(props) {
     const navigate = useNavigate();
   
-    function logout(){
-      localStorage.removeItem('Username');
-      props.onLogout()
+    async function logout(){
+      //localStorage.removeItem('Username');
+      fetch(`/api/auth/logout`, {
+        method: 'delete',
+      })
+      .finally(() => {
+        localStorage.removeItem('Username');
+        props.onLogout();
+      });
     }
   
     return (

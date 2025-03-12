@@ -4,7 +4,7 @@ import React from 'react';
 export function Unauthenticated(props) {
     const [Username, setUsername] = React.useState(props.Username);
     const [Password, setPassword] = React.useState('');
-    const [displayError, setDisplayError] = React.useState(null);
+    //const [displayError, setDisplayError] = React.useState(null);
   
     async function loginUser(){
       //localStorage.setItem('Username', Username);
@@ -27,9 +27,6 @@ export function Unauthenticated(props) {
       if(response?.status ===200) {
         localStorage.setItem('Username', Username);
         props.onLogin(Username);
-      } else {
-        const body = await response.json();
-        setDisplayError(`Error: ${body.msg}`)
       }
     }
 
