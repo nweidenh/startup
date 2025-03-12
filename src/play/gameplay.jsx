@@ -87,7 +87,7 @@ export function Gameplay(props){
             body: JSON.stringify(recentWinner)
         });
 
-        const parsedWinner = JSON.parse(fixedJSON);
+        const parsedWinner = JSON.parse(recentWinner);
 
         GameNotifier.broadcastEvent(Username, GameEvent.End, parsedWinner.winner)
     }

@@ -68,7 +68,7 @@ const verifyAuth = async (req, res, next) =>{
 apiRouter.get('/results', verifyAuth, (_req, res) =>{
     res.send(results);
 });
-
+// Looks like this might not be verifying correctly
 // Post Result
 apiRouter.post('/result', verifyAuth, (req, res) =>{
     results = updateResults(req.body);
@@ -122,8 +122,8 @@ function clearAuthCookie(res, user) {
 function updateResults(newResult){
     results.push(newResult);
 
-    if (results.length > 5) {
-        results.length = 5;
+    if (results.length > 10) {
+        results.length = 10;
     }
       
     return results;
