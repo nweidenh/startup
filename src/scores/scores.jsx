@@ -3,7 +3,7 @@ import './database.css';
 
 export function Scores() {
   const [wins, setWins] = React.useState([]);
-
+ 
   React.useEffect(() => {
     //setWins('')
     //const winsText = localStorage.getItem('Wins')
