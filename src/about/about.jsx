@@ -1,13 +1,18 @@
 import React from 'react';
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './info.css';
 
 export function About(props) {
-  const [quote, setQuote] = React.useState('TBD');
-  const [quoteAuthor, setAuthor] = React.useState('TBD')
+  const [joke, setJoke] = React.useState('TBD');
+  //const [quoteAuthor, setAuthor] = React.useState('TBD')
 
   React.useEffect(() => {
-    setQuote('Inspirational Quote will go here!')
-    setAuthor('Inspirational Speaker')
+    fetch('https://api.chucknorris.io/jokes/random?category=dev')
+      .then((response) => response.json())
+      .then((data) => {
+        setJoke(data.value);
+      })
+      .catch();
   }, []);
   
   return (
@@ -27,8 +32,8 @@ export function About(props) {
       </section>
       <br />
       <section id="Quote" className="text-box">
-        <p>{quote} <br />
-        {quoteAuthor}</p>
+        <p>{joke} <br />
+        Jokes by Chuck Norris Himself</p>
       </section>
       </div>
     </main>
