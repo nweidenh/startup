@@ -15,8 +15,8 @@ function App() {
 
   return (
     <BrowserRouter>
-  <div className="body">
-  <header className="container-fluid">
+      <div className="body">
+          <header className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
                     <NavLink className = "navbar-brand" to="#">

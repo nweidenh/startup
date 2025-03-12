@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { MessageDialog } from './messageDialog';
 
 
 export function Unauthenticated(props) {
@@ -36,7 +38,7 @@ export function Unauthenticated(props) {
   
     return (
       <main className="container-fluid">
-      <form>
+        <form>
       <div><h3 className="white-bold-text p-3">To play a game, please login below:</h3></div>
           <div className="input-group custom-padding">
               <span className="input-group-text">Username:</span>
@@ -50,9 +52,8 @@ export function Unauthenticated(props) {
               <button onClick={() => createUser()} type="submit" className="btn btn-secondary" disabled={!Username || !Password}>Create</button>
       </form>
       <br />
-      <div>
-      { displayError && <p style={{ color: "red" }}> {displayError} </p>}
-      </div>
+      <p style={{ color: "red" }}> {displayError} </p>
   </main>
+
     );
 }
