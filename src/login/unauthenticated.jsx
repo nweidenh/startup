@@ -30,6 +30,7 @@ export function Unauthenticated(props) {
         localStorage.setItem('Username', Username);
         props.onLogin(Username);
       } else {
+        props.onLogin(response?.status);
         const body = await response.json();
         setDisplayError(`Error: ${body.msg}`);
       }
