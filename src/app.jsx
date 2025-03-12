@@ -8,7 +8,7 @@ import { Scores } from './scores/scores';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 
-export default function App() {
+function App() {
   const [Username, setUsername] = React.useState(localStorage.getItem('Username') || '')
   const currentAuthState = Username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState)
@@ -65,3 +65,5 @@ export default function App() {
 function NotFound() {
     return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
   }
+
+  export default App;

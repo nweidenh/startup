@@ -4,31 +4,30 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 //const { createServerModuleRunner } = require('vite');
+const authCookieName = 'token';
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 let users = [];
 let results = [];
 
-app.use(express.static('public'));
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-
 app.use(express.json());
 
-let apiRouter = express.Router();
+app.use(cookieParser());
+
+app.use(express.static('public'));
+
+var apiRouter = express.Router();
 app.use(`/api`, apiRouter)
 
 //Create a new User
 apiRouter.post('/auth/create', async (req, res) => {
-    if (await finduser('username', req.body.username)){
+    if (await getUser('username', req.body.username)){
         res.status(409).send({ msg: 'Existing User'});
     } else {
         const user = await createUser(req.body.username, req.body.password);
         setAuthCookie(res, user.token);
-        res.send({email: user.email});
+        res.status(200).send({username: user.username});
     }
 });
 
@@ -39,7 +38,7 @@ apiRouter.post('/auth/login', async (req, res) => {
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4()
             setAuthCookie(res, user.token);
-            res.send({username: user.username});
+            res.status(200).send({username: user.username});
             return;
         }
     }
@@ -81,6 +80,10 @@ app.use(function (err, req, res, next) {
     res.status(555).send({type: err.name, message: err.message});
 });
 
+app.use((_req, res) => {
+    res.sendFile('index.html', { root: 'public' });
+  });
+
 
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
@@ -88,6 +91,7 @@ async function createUser(username, password) {
     const user = {
         username: username,
         password: passwordHash,
+        token: uuid.v4(),
     };
 
     users.push(user);
@@ -95,10 +99,8 @@ async function createUser(username, password) {
     return user;
 }
 
-function setAuthCookie(res, user){
-    user.token = uuid.v4()
-
-    res.cookie('token', user.token, {
+function setAuthCookie(res, authToken){
+    res.cookie(authCookieName, authToken, {
         secure: true,
         httpOnly: true,
         sameSite: 'strict',
@@ -107,6 +109,8 @@ function setAuthCookie(res, user){
 
 function getUser(field, value) {
     if (value) {
+        //console.log(users.find((user) => user[field] === value));
+        //console.log(users)
       return users.find((user) => user[field] === value);
     }
     return null;
@@ -127,3 +131,7 @@ function updateResults(newResult){
       
     return results;
 }
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
