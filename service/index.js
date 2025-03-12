@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 var apiRouter = express.Router();
-app.use(`/api`, apiRouter)
+app.use(`/api`, apiRouter);
 
 //Create a new User
 apiRouter.post('/auth/create', async (req, res) => {
@@ -36,7 +36,7 @@ apiRouter.post('/auth/login', async (req, res) => {
     const user = await getUser('username', req.body.username);
     if (user){
         if (await bcrypt.compare(req.body.password, user.password)) {
-            user.token = uuid.v4()
+            user.token = uuid.v4();
             setAuthCookie(res, user.token);
             res.send({username: user.username});
             return;
@@ -49,7 +49,7 @@ apiRouter.post('/auth/login', async (req, res) => {
 apiRouter.delete('/auth/logout', async (req,res) => {
     const user = await getUser('token', req.cookies[authCookieName]);
     if (user) {
-        clearAuthCookie(res, user)
+        clearAuthCookie(res, user);
     }
     res.status(204).end();
 });
@@ -108,12 +108,9 @@ function setAuthCookie(res, authToken){
 }
 
 function getUser(field, value) {
-    if (value) {
-        //console.log(users.find((user) => user[field] === value));
-        //console.log(users)
-      return users.find((user) => user[field] === value);
-    }
-    return null;
+    if (!value) return null;
+
+    return users.find((u) => u[field] === value);
   }
 
 function clearAuthCookie(res, user) {
