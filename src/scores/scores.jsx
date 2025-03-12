@@ -10,7 +10,7 @@ export function Scores() {
     //if(winsText){
       //setWins(JSON.parse(winsText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
     //}
-    fetch('/api/scores')
+    fetch('/api/results')
       .then((response) => response.json())
       .then((results) => {
         setWins(results);

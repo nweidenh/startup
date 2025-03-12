@@ -81,7 +81,7 @@ export function Gameplay(props){
     // }
 
     async function updateWinsStorage(recentWinner){
-        await fetch('/api/score', {
+        await fetch('/api/result', {
             method: 'POST',
             headers: { 'content-type': 'application/json'},
             body: JSON.stringify(recentWinner)
