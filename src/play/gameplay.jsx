@@ -70,14 +70,26 @@ export function Gameplay(props){
         });
     }
 
-    function updateWinsStorage(recentWinner){
-        let wins = [];
-        const winsText = localStorage.getItem('Wins');
-        if (winsText !== null){
-            wins = JSON.parse(winsText);
-        } 
-        wins.push(recentWinner)
-        localStorage.setItem('Wins', JSON.stringify(wins))
+    // function updateWinsStorage(recentWinner){
+    //     let wins = [];
+    //     const winsText = localStorage.getItem('Wins');
+    //     if (winsText !== null){
+    //         wins = JSON.parse(winsText);
+    //     } 
+    //     wins.push(recentWinner)
+    //     localStorage.setItem('Wins', JSON.stringify(wins))
+    // }
+
+    async function updateWinsStorage(recentWinner){
+        await fetch('/api/score', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json'},
+            body: JSON.stringify(recentWinner)
+        });
+
+        const parsedWinner = JSON.parse(fixedJSON);
+
+        GameNotifier.broadcastEvent(Username, GameEvent.End, parsedWinner.winner)
     }
 
     const checkWin = (board) => {
