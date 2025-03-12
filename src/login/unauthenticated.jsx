@@ -6,22 +6,36 @@ export function Unauthenticated(props) {
     const [Password, setPassword] = React.useState('');
     const [displayError, setDisplayError] = React.useState(null);
   
-    function loginUser(){
-      localStorage.setItem('Username', Username);
-      props.onLogin(Username)
+    async function loginUser(){
+      //localStorage.setItem('Username', Username);
+      loginOrCreate(`/api/auth/login`);
     }
   
-    function createUser(){
-        localStorage.setItem('Username', Username);
-        props.onLogin(Username)
+    async function createUser(){
+        //localStorage.setItem('Username', Username);
+        loginOrCreate(`/api/auth/create`);
     }
+
+    async function loginOrCreate(endpoint) {
+      const response = await fetch(endpoint, {
+        method: 'post',
+        body: JSON.stringify({username: Username, password: Password }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      if(response?.status ===200) {
+        localStorage.setItem('Username', Username);
+        props.onLogin(Username);
+      } else {
+        const body = await response.json();
+        setDisplayError(`Error: ${body.msg}`)
+      }
+    }
+
   
     return (
       <main className="container-fluid">
-      {/*<div className="p-3"><h1 class="white-bold-text">This is Connect 4</h1>
-      <h4 className="white-bold-text">The ultimate test of strategy and wits</h4>
-      </div>
-    <img className= "p-3" src="Connect 4 Box.jpg" alt="Connect 4 Box" width="300" height="auto" />*/}
       <form>
       <div><h3 className="white-bold-text p-3">To play a game, please login below:</h3></div>
           <div className="input-group custom-padding">
