@@ -117,3 +117,14 @@ For this deliverable I used JavaScript and React so that the application complet
   - [x] **Database** I also implemented the database table. This adds new lines to the table whenever a game is completed. I changed the functionality to focus on just putting the games played in the table, rather than the previously desired functionality. Currently the winners are stored in local memory.
 
 - [x] **Hooks** - Used useState and useEffect hooks throughout the website with some implementation on each phase. The clearest examples of this are the useEffect with the notifications and score updateing, as well as useState within the play game, whose turn is it, functionality.
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that creates login functionality, as well as stores users outside of just local storage. It also uses a third party endpoint.
+
+- [x] **Node.js/Express HTTP service** - Completed adding the Node.js/Express HTTP service. 
+- [x] **Static middleware for frontend** - Added to index.js to serve files from the public directory.
+- [x] **Calls to third party endpoints** - I added a third party endpoint that recieves a chuck norris joke on my about page. This is located in the about.jsx file.
+- [x] **Backend service endpoints** - The login is set up on the backend to login, verify, and store users. Same with the resulsts. They are put into the table upon transfering to the results database tab.
+- [x] **Frontend calls service endpoints** - Fetch function calls the backend for creating a user, logging in, logging out, and for the restult updated upon winners of a game.
+- [x] **Supports registration, login, logout, and restricted endpoint** - This functionality is supported. Restricted endpoints include the results transfer into the file.
