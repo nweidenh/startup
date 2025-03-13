@@ -57,3 +57,9 @@ Startup Service:
 Codepen for Fetching a third party service: https://codepen.io/Nathan-Weidenhamer/pen/OPJxgPV?editors=0010
 
 NPM is a powerful tool when using vite and node to make the backend and frontend work
+
+When working in the front end and backend,it appears that the best method is to open up two terminals, run npm run dev in one and access the service directory on the other terminal, and run node index.js
+
+To debug the front end, using the dev tools on the browser is the best method. To debug the back end, using the IDE debug is the best tool. 
+
+Breakpoints are key in both front end and back end debugging.
