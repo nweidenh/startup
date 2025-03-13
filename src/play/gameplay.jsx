@@ -87,9 +87,10 @@ export function Gameplay(props){
             body: JSON.stringify(recentWinner)
         });
 
-        const parsedWinner = JSON.parse(recentWinner);
+        //const parsedWinner = JSON.parse(recentWinner);
 
-        GameNotifier.broadcastEvent(Username, GameEvent.End, parsedWinner.winner)
+        const parsedWinner = recentWinner.winner;
+        GameNotifier.broadcastEvent(Username, GameEvent.End, parsedWinner)
     }
 
     const checkWin = (board) => {
