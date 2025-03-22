@@ -128,3 +128,10 @@ For this deliverable I added backend endpoints that creates login functionality,
 - [x] **Backend service endpoints** - The login is set up on the backend to login, verify, and store users. Same with the resulsts. They are put into the table upon transfering to the results database tab.
 - [x] **Frontend calls service endpoints** - Fetch function calls the backend for creating a user, logging in, logging out, and for the restult updated upon winners of a game.
 - [x] **Supports registration, login, logout, and restricted endpoint** - This functionality is supported. Restricted endpoints include the results transfer into the file.
+
+## Database deliverable
+
+For this deliverable I added the connection ability with the MongoDB database connections. Login credentials are stored through Mongo and so are the wins of recent games.
+
+- [x] **Stores Data in MongoD** - Both the login credentials and wins results are stored in MongoDB. 
+- [x] **Use MongoDB to store credentials** - Login credentials are stored within MongoDB. Those not logged in are still unable to play and credentials are held through multiple log ins and outs as well as leaving the server.
