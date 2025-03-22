@@ -63,3 +63,12 @@ When working in the front end and backend,it appears that the best method is to 
 To debug the front end, using the dev tools on the browser is the best method. To debug the back end, using the IDE debug is the best tool. 
 
 Breakpoints are key in both front end and back end debugging.
+
+DB
+NPM has a mongo db package that needs to be downloaded for functionality
+Mongo does not store in tables but rather more as documents
+It is a NoSQL database set up
+
+Managing through Atlas just needs the web address, and your username and password to access remotely
+
+Honestly once it is set up, the data functionality seems solid and not too hard.
