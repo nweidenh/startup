@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 //const { createServerModuleRunner } = require('vite');
 const authCookieName = 'token';
+const DB = require('./database.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -37,6 +38,7 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (user){
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4();
+            await DB.updateUser(user);
             setAuthCookie(res, user.token);
             res.send({username: user.username});
             return;
@@ -50,6 +52,7 @@ apiRouter.delete('/auth/logout', async (req,res) => {
     const user = await getUser('token', req.cookies[authCookieName]);
     if (user) {
         clearAuthCookie(res, user);
+        DB.updateUser(user);
     }
     res.status(204).end();
 });
@@ -66,6 +69,7 @@ const verifyAuth = async (req, res, next) =>{
 
 // Get Results
 apiRouter.get('/results', verifyAuth, (_req, res) =>{
+    const scores = await DB.getWins();
     res.send(results);
 });
 // Looks like this might not be verifying correctly
@@ -90,7 +94,8 @@ async function createUser(username, password) {
         token: uuid.v4(),
     };
 
-    users.push(user);
+    await DB.addUser(user)
+    //users.push(user);
 
     return user;
 }
@@ -106,7 +111,12 @@ function setAuthCookie(res, authToken){
 function getUser(field, value) {
     if (!value) return null;
 
-    return users.find((u) => u[field] === value);
+    if (field === 'token') {
+        return DB.findUserToken(value)
+    }
+
+    return DB.findUser(value)
+    //return users.find((u) => u[field] === value);
   }
 
 function clearAuthCookie(res, user) {
