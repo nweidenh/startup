@@ -40,7 +40,7 @@ async function addWin(result){
 
 function getWins(){
     const options = {
-        sort: { GameID : -1},
+        sort: { date : -1},
         limit: 10,
     };
     const wins = winCollection.find({}, options);
