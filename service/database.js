@@ -17,3 +17,15 @@ const scoreCollection = db.collection('wins');
     process.exit(1);
   }
 })();
+
+function getUser(Username){
+    return userCollection.findOne({Username: Username});
+}
+
+function findUserToken(token){
+    return userCollection.findOne({token: token})
+}
+
+async function addUser(user){
+    await userCollection.insertOne(user)
+}
