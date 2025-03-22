@@ -29,3 +29,8 @@ function findUserToken(token){
 async function addUser(user){
     await userCollection.insertOne(user)
 }
+
+async function updateUser(user){
+    await userCollection.updateOne({Username: user.Username}, { $set: user})
+}
+
