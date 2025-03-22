@@ -70,7 +70,7 @@ apiRouter.get('/results', verifyAuth, async (_req, res) =>{
     const results = await DB.getWins();
     res.send(results);
 });
-// Looks like this might not be verifying correctly
+
 // Post Result
 apiRouter.post('/result', verifyAuth, async (req, res) =>{
     const results = updateResults(req.body);

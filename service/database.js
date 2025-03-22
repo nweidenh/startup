@@ -18,8 +18,8 @@ const scoreCollection = db.collection('wins');
   }
 })();
 
-function getUser(Username){
-    return userCollection.findOne({Username: Username});
+function findUser(username){
+    return userCollection.findOne({username: username});
 }
 
 function findUserToken(token){
@@ -31,6 +31,6 @@ async function addUser(user){
 }
 
 async function updateUser(user){
-    await userCollection.updateOne({Username: user.Username}, { $set: user})
+    await userCollection.updateOne({username: user.username}, { $set: user})
 }
 
