@@ -9,8 +9,6 @@ const DB = require('./database.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
-let users = [];
-let results = [];
 
 app.use(express.json());
 
@@ -68,14 +66,14 @@ const verifyAuth = async (req, res, next) =>{
 };
 
 // Get Results
-apiRouter.get('/results', verifyAuth, (_req, res) =>{
-    const scores = await DB.getWins();
+apiRouter.get('/results', verifyAuth, async (_req, res) =>{
+    const results = await DB.getWins();
     res.send(results);
 });
 // Looks like this might not be verifying correctly
 // Post Result
-apiRouter.post('/result', verifyAuth, (req, res) =>{
-    results = updateResults(req.body);
+apiRouter.post('/result', verifyAuth, async (req, res) =>{
+    const results = updateResults(req.body);
     res.send(results);
 });
 
@@ -115,7 +113,7 @@ function getUser(field, value) {
         return DB.findUserToken(value)
     }
 
-    return DB.findUser(value)
+    return DB.findUser(value);
     //return users.find((u) => u[field] === value);
   }
 
@@ -125,14 +123,17 @@ function clearAuthCookie(res, user) {
   }
 
 //Update Results
-function updateResults(newResult){
-    results.push(newResult);
+async function updateResults(newResult){
+    await DB.addWin(newResult);
+    return DB.getWins();
+    
+    // results.push(newResult);
 
-    if (results.length > 10) {
-        results.length = 10;
-    }
+    // if (results.length > 10) {
+    //     results.length = 10;
+    // }
       
-    return results;
+    // return results;
 }
 
 app.listen(port, () => {
