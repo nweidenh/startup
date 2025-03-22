@@ -39,7 +39,16 @@ async function addWin(result){
 }
 
 function getWins(){
-    const wins = winCollection.find();
+    const wins = winCollection.find({});
     return wins.toArray();
+}
+
+module.exports ={
+    findUser,
+    findUserToken,
+    addUser,
+    updateUser,
+    addWin,
+    getWins
 }
 
