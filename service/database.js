@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, CursorTimeoutMode } = require('mongodb');
 const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
@@ -6,7 +6,7 @@ const client = new MongoClient(url);
 const db = client.db('connect4');
 
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('wins');
+const winCollection = db.collection('wins');
 
 (async function testConnection() {
   try {
@@ -32,5 +32,14 @@ async function addUser(user){
 
 async function updateUser(user){
     await userCollection.updateOne({username: user.username}, { $set: user})
+}
+
+async function addWin(result){
+    return winCollection.insertOne(result)
+}
+
+function getWins(){
+    const wins = winCollection.find();
+    return wins.toArray();
 }
 
