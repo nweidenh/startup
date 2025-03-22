@@ -55,13 +55,15 @@ export function Gameplay(props){
             // Simon Format[{name: "a", score: 2, date: "2/26/2025"}, {name: "a", score: 2, date: "2/26/2025"}] 
             if(checkWin(newData) === 1){
                 setWinner("Congrats! You Win!");
+                const date = new Date().toLocaleDateString();
                 GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
-                updateWinsStorage({'name': Username, 'winner': Username, 'loser': 'Computer'})
+                updateWinsStorage({'name': Username, 'winner': Username, 'loser': 'Computer', 'date': date})
                 setTurnState(TurnState.GameEnd)
             } else if(checkWin(newData) === -1){
                 setWinner("Sorry to say it, but the computer beat you!");
+                const date = new Date().toLocaleDateString();
                 GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
-                updateWinsStorage({'name': Username, 'winner': 'Computer', 'loser': Username})
+                updateWinsStorage({'name': Username, 'winner': 'Computer', 'loser': Username, 'date': date})
                 setTurnState(TurnState.GameEnd)
             } else{
                 setWinner("No winner yet...")
@@ -69,16 +71,6 @@ export function Gameplay(props){
                 return newData;
         });
     }
-
-    // function updateWinsStorage(recentWinner){
-    //     let wins = [];
-    //     const winsText = localStorage.getItem('Wins');
-    //     if (winsText !== null){
-    //         wins = JSON.parse(winsText);
-    //     } 
-    //     wins.push(recentWinner)
-    //     localStorage.setItem('Wins', JSON.stringify(wins))
-    // }
 
     async function updateWinsStorage(recentWinner){
         await fetch('/api/result', {
