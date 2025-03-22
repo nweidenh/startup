@@ -26,12 +26,13 @@ export function Scores() {
           <td>{win.name}</td>
           <td>{win.winner}</td>
           <td>{win.loser}</td>
+          <td>{win.date}</td>
         </tr>
       );
   } else{
     scoreRows.push(
       <tr key = '0'>
-        <td colSpan = '4'> No One Has Played A Game Yet</td>
+        <td colSpan = '5'> No One Has Played A Game Yet</td>
       </tr>
     );
   }
@@ -46,6 +47,7 @@ export function Scores() {
                         <th>Player Name</th>
                         <th>Winner</th>
                         <th>Loser</th>
+                        <th>Date</th>
                     </tr>
                   </thead>
                   <tbody id='wins'>{scoreRows}</tbody>
