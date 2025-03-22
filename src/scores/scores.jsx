@@ -38,7 +38,7 @@ export function Scores() {
 
   return (
     <main className="container-fluid text-center">
-        <h1>Check Out All The Games That Have Been Played</h1>
+        <h1>Check Out Up To The 10 Most Recent Game Results</h1>
                 <table className="table table-warning table-striped-columns">
                   <thead className="table-dark">
                     <tr>
