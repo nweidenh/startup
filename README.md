@@ -133,5 +133,5 @@ For this deliverable I added backend endpoints that creates login functionality,
 
 For this deliverable I added the connection ability with the MongoDB database connections. Login credentials are stored through Mongo and so are the wins of recent games.
 
-- [x] **Stores Data in MongoD** - Both the login credentials and wins results are stored in MongoDB. 
+- [x] **Stores Data in MongoD** - Both the login credentials and wins results are stored in MongoDB. Changed database functionality to only show the most recent 10 games.
 - [x] **Use MongoDB to store credentials** - Login credentials are stored within MongoDB. Those not logged in are still unable to play and credentials are held through multiple log ins and outs as well as leaving the server.
