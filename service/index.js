@@ -137,6 +137,8 @@ async function updateResults(newResult){
     // return results;
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
   });
+
+peerProxy(httpService)
