@@ -19,12 +19,28 @@ class GameEventNotifier{
     handlers = []
 
     constructor(){
-        setInterval(()=> {
-            const names = ['Sue', 'John', 'Nathan']
-            const things = [' is watching ', ' joined ', ' forfeited ']
-            const randomName = names[Math.floor(Math.random() * names.length)]
-            this.broadcastEvent(randomName, GameEvent.End, {winner: randomName})
-          }, 5000);
+        // setInterval(()=> {
+        //     const names = ['Sue', 'John', 'Nathan']
+        //     const things = [' is watching ', ' joined ', ' forfeited ']
+        //     const randomName = names[Math.floor(Math.random() * names.length)]
+        //     this.broadcastEvent(randomName, GameEvent.End, {winner: randomName})
+        //   }, 5000);
+
+        let port = window.location.port;
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss'
+        this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+        this.socket.onopen = (event) => {
+            this.recieveEvent(new EventMessage('Connect4', GameEvent.System, {msg: 'connected'}));
+        };
+        this.socket.onclose = (event) => {
+            this.recieveEvent(new EventMessage('Connect4', GameEvent.System, {msg: 'disconnected'}));
+        };
+        this.socket.onmessage = async (msg) => {
+            try {
+                const event = JSON.parse(await msg.data.text());
+                this.recieveEvent(event);
+            } catch {}
+        };
     }
 
     broadcastEvent(from, type, value){
