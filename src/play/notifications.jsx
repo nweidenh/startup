@@ -29,11 +29,9 @@ export function Notifications(props) {
         for (const[i, event] of events.entries()){
             let message = 'unknown';
             if (event.type === GameEvent.End) {
-                message = `${event.value.winner} won a game`;
+                message = `${event.value.winner} won a game vs ${event.value.loser}`;
             } else if (event.type === GameEvent.Start){
-                message = `${event.from} joined a game`;
-            } else if (event.type === GameEvent.Observe){
-                message = `${event.from} is watching a game`;
+                message = `${event.from} started a game`;
             } else if (event.type === GameEvent.System){
                 message = event.value.msg;
             }

@@ -54,15 +54,19 @@ export function Gameplay(props){
             }
             // Simon Format[{name: "a", score: 2, date: "2/26/2025"}, {name: "a", score: 2, date: "2/26/2025"}] 
             if(checkWin(newData) === 1){
+                //Player won
                 setWinner("Congrats! You Win!");
                 const date = new Date().toLocaleDateString();
-                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
+                //Tell other players who won
+                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'The Computer'});
                 updateWinsStorage({'name': Username, 'winner': Username, 'loser': 'Computer', 'date': date})
                 setTurnState(TurnState.GameEnd)
             } else if(checkWin(newData) === -1){
+                //Computer Won
                 setWinner("Sorry to say it, but the computer beat you!");
                 const date = new Date().toLocaleDateString();
-                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': Username, 'loser': 'Computer'});
+                //Tell other players who won
+                GameNotifier.broadcastEvent(Username, GameEvent.End, {'name': Username, 'winner': 'The Computer', 'loser': Username});
                 updateWinsStorage({'name': Username, 'winner': 'Computer', 'loser': Username, 'date': date})
                 setTurnState(TurnState.GameEnd)
             } else{
@@ -81,7 +85,8 @@ export function Gameplay(props){
 
         //const parsedWinner = JSON.parse(recentWinner);
         const parsedWinner = recentWinner.winner;
-        GameNotifier.broadcastEvent(Username, GameEvent.End, parsedWinner)
+        //Tell other players who won
+        //GameNotifier.broadcastEvent(Username, GameEvent.EndW, parsedWinner)
     }
 
     const checkWin = (board) => {
