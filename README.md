@@ -135,3 +135,13 @@ For this deliverable I added the connection ability with the MongoDB database co
 
 - [x] **Stores Data in MongoD** - Both the login credentials and wins results are stored in MongoDB. Changed database functionality to only show the most recent 10 games. (The wins with no date in the table are from before I implemented the date functionality)
 - [x] **Use MongoDB to store credentials** - Login credentials are stored within MongoDB. Those not logged in are still unable to play and credentials are held through multiple log ins and outs as well as leaving the server.
+
+## WebSocket Deliverable
+
+For this deliberable, I added the functionality of sharing scores between different users live. This also shows when players start a game.
+
+ - [x] **Backend listens for WebSocket connection** - Backend is listening for the connection from others.
+ - [x] **Frontend makes WebSocket connection** - Frontend makes the connection when recieved.
+ - [x] **Data sent over WebSocket connection** - Results and names are sent over WebSocket.
+ - [x] **WebSocket data displayed** - Game results as well as when a player begins a new game is displayed for individuals.
+ - [x] **All visible elements are working** - All mocked out functionality works. The scores just make the play screen longer instead of going behind the game. I couldn't make this work without breaking other things so I decided to leave this as too many people will not be using the game. Other than that, all functions work.
