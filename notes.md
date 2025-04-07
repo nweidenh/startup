@@ -78,3 +78,6 @@ Empty brackets in a mongoDB query just returns everything, options allow you to 
 Websocket
 To debug, you have to run the F5 through the index.js file
 If your debugger breaks, you may need to create a launch file
+
+This Websocket feels similar to in CS240. Need to create the on connection functionality and only send messages to others, not yourself.
+Confirm the console is still alive with the isAlive function
