@@ -15,13 +15,14 @@ export function Notifications(props) {
     }, []);
 
     function handleGameEvent(event){
-        setEvent((prevEvents) => {
-            let newEvents = [event, ...prevEvents];
-            if (newEvents.length > 5) {
-                newEvents = newEvents.slice(1,5);
-            }
-            return newEvents;
-        });
+        // setEvent((prevEvents) => {
+        //     let newEvents = [event, ...prevEvents];
+        //     if (newEvents.length > 5) {
+        //         newEvents = newEvents.slice(1,5);
+        //     }
+        //     return newEvents;
+        // });
+        setEvent([...events, event]);
     }
 
     function createMessageList() {
