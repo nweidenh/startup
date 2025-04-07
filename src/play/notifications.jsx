@@ -15,14 +15,15 @@ export function Notifications(props) {
     });
 
     function handleGameEvent(event){
+        setEvent([...events, event]);
         // setEvent((prevEvents) => {
-        //     let newEvents = [event, ...prevEvents];
+        //     let newEvents = [...event, event];
         //     if (newEvents.length > 5) {
         //         newEvents = newEvents.slice(1,5);
         //     }
         //     return newEvents;
         // });
-        setEvent([...events, event]);
+        //setEvent([...events, event]);
     }
 
     function createMessageList() {
