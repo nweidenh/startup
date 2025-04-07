@@ -1,4 +1,4 @@
-const { WebSocketServer } = requre('ws');
+const { WebSocketServer } = require('ws');
 
 function peerProxy(httpServer) {
     const socketServer = new WebSocketServer({server: httpServer})
@@ -29,4 +29,4 @@ function peerProxy(httpServer) {
     }, 10000);
 }
 
-module.exports = { peerProxy};
+module.exports = {peerProxy};
