@@ -138,7 +138,7 @@ For this deliverable I added the connection ability with the MongoDB database co
 
 ## WebSocket Deliverable
 
-For this deliberable, I added the functionality of sharing scores between different users live. This also shows when players start a game.
+For this deliberable, I added the functionality of sharing results between different users live. This also shows when players start a game while in the play screen.
 
  - [x] **Backend listens for WebSocket connection** - Backend is listening for the connection from others.
  - [x] **Frontend makes WebSocket connection** - Frontend makes the connection when recieved.

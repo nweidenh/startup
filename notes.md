@@ -81,3 +81,7 @@ If your debugger breaks, you may need to create a launch file
 
 This Websocket feels similar to in CS240. Need to create the on connection functionality and only send messages to others, not yourself.
 Confirm the console is still alive with the isAlive function
+
+WebSocket connection goes through the backend with pings. Listens for other users. Having the notification file set up to both send and recieve.
+
+Actively creates new divs through the function. Interesting that you can be extending the web page with a function, not just a static page.
