@@ -12,7 +12,7 @@ export function Notifications(props) {
         return() => {
             GameNotifier.removeHandler(handleGameEvent);
         };
-    }, []);
+    });
 
     function handleGameEvent(event){
         // setEvent((prevEvents) => {
