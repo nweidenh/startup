@@ -74,3 +74,7 @@ Managing through Atlas just needs the web address, and your username and passwor
 Honestly once it is set up, the data functionality seems solid and not too hard.
 
 Empty brackets in a mongoDB query just returns everything, options allow you to update that query.
+
+Websocket
+To debug, you have to run the F5 through the index.js file
+If your debugger breaks, you may need to create a launch file
