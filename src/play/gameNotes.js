@@ -45,7 +45,8 @@ class GameEventNotifier{
 
     broadcastEvent(from, type, value){
         const event = new EventMessage(from, type, value)
-        this.recieveEvent(event)
+        //this.recieveEvent(event)
+        this.socket.send(JSON.stringify(event));
     }
 
     addHandler(handler) {
@@ -57,8 +58,11 @@ class GameEventNotifier{
     }
     recieveEvent(event){
         this.events.push(event);
-        this.handlers.forEach((handler) => {
-            handler(event);
+
+        this.events.forEach((e) => {
+            this.handlers.forEach((handler) => {
+                handler(e);
+            });
         });
     }
 }
