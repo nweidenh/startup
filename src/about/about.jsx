@@ -4,7 +4,6 @@ import './info.css';
 
 export function About(props) {
   const [joke, setJoke] = React.useState('TBD');
-  //const [quoteAuthor, setAuthor] = React.useState('TBD')
 
   React.useEffect(() => {
     fetch('https://api.chucknorris.io/jokes/random?category=dev')

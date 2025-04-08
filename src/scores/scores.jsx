@@ -5,11 +5,6 @@ export function Scores() {
   const [wins, setWins] = React.useState([]);
  
   React.useEffect(() => {
-    //setWins('')
-    //const winsText = localStorage.getItem('Wins')
-    //if(winsText){
-      //setWins(JSON.parse(winsText)) //Make the input text a JSON string that can be dissected, instead of 2 different input texts
-    //}
     fetch('/api/results')
       .then((response) => response.json())
       .then((results) => {

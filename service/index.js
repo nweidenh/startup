@@ -3,7 +3,6 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
-//const { createServerModuleRunner } = require('vite');
 const authCookieName = 'token';
 const DB = require('./database.js');
 const { peerProxy } = require('./peerProxy.js');
@@ -94,7 +93,6 @@ async function createUser(username, password) {
     };
 
     await DB.addUser(user)
-    //users.push(user);
 
     return user;
 }
@@ -115,7 +113,6 @@ function getUser(field, value) {
     }
 
     return DB.findUser(value);
-    //return users.find((u) => u[field] === value);
   }
 
 function clearAuthCookie(res, user) {
@@ -128,13 +125,6 @@ async function updateResults(newResult){
     await DB.addWin(newResult);
     return DB.getWins();
     
-    // results.push(newResult);
-
-    // if (results.length > 10) {
-    //     results.length = 10;
-    // }
-      
-    // return results;
 }
 
 const httpService = app.listen(port, () => {

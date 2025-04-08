@@ -7,7 +7,6 @@ export function Authenticated(props) {
     const navigate = useNavigate();
   
     async function logout(){
-      //localStorage.removeItem('Username');
       fetch(`/api/auth/logout`, {
         method: 'delete',
       })

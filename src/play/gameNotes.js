@@ -19,12 +19,6 @@ class GameEventNotifier{
     handlers = []
 
     constructor(){
-        // setInterval(()=> {
-        //     const names = ['Sue', 'John', 'Nathan']
-        //     const things = [' is watching ', ' joined ', ' forfeited ']
-        //     const randomName = names[Math.floor(Math.random() * names.length)]
-        //     this.broadcastEvent(randomName, GameEvent.End, {winner: randomName})
-        //   }, 5000);
 
         let port = window.location.port;
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss'
@@ -45,7 +39,6 @@ class GameEventNotifier{
 
     broadcastEvent(from, type, value){
         const event = new EventMessage(from, type, value)
-        //this.recieveEvent(event)
         this.socket.send(JSON.stringify(event));
     }
 
