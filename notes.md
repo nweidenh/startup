@@ -85,3 +85,5 @@ Confirm the console is still alive with the isAlive function
 WebSocket connection goes through the backend with pings. Listens for other users. Having the notification file set up to both send and recieve.
 
 Actively creates new divs through the function. Interesting that you can be extending the web page with a function, not just a static page.
+
+Best way to get your code looking good is to add comments and get rid of old code... that is what your gitHub commits are for.
